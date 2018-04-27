@@ -32,11 +32,15 @@ SetTimer, MoveMouse, 300000
 
 ;testing
 q::
+   Restart_Launcher()
+Return
+
+w::
 	KilLAllGames()
 return
 
 ;temp kill command for testing
-#q::ExitApp
+Esc::ExitApp
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; RESTART BUTTON
@@ -65,13 +69,20 @@ Restart_Launcher()
 
 KillAllGames(){
 	KillWindow("BleepSpace.exe")
+	KillWindow("chrome.exe")
 	
 	;Return focus to launcher
 	WinActivate, dream_launcher
+	Sleep 20
+	Send {R 1}
 }
 
 KillWindow(exe_name)
 {
+	;WinGetTitle, Title, A
+	;MsgBox, The active window is "%Title%".
+	;MsgBox %windowName%
+	;WinClose, %windowName%
 	Process,Exist, %exe_name%
 	If ErrorLevel
 		Process,Close,%Errorlevel%
@@ -99,6 +110,8 @@ MoveMouse(){
 #c::SystemCursor("Toggle")
 
 #t::WinShow ahk_class Shell_TrayWnd
+
+#z::Exit
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; BABYCASTLES LIBRARY

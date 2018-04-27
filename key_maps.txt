@@ -1,0 +1,15 @@
+W - kills games and refocusses launcher
+Q - restart launcher
+R - used in oF launcher app to resize the window
+ESC - kills autohotkey script
+
+1-8 launch games from launcher
+
+--For arcade--
+WASD
+C
+V
+Arrows
+N
+M
+

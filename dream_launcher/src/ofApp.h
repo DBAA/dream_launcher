@@ -23,5 +23,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		void launchExe(string path);
-		
+		void launchWeb(string url);
+
+		bool isFullScreened();
+
 };
