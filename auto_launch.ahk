@@ -71,6 +71,10 @@ KillAllGames(){
 	KillWindow("BleepSpace.exe")
 	KillWindow("chrome.exe")
 	
+	;if the launcher was closed somehow, relaunch it
+	If !ProcessExist("dream_launcher_debug.exe")
+		Restart_Launcher()
+	
 	;Return focus to launcher
 	WinActivate, dream_launcher
 	Sleep 20
@@ -79,14 +83,21 @@ KillAllGames(){
 
 KillWindow(exe_name)
 {
-	;WinGetTitle, Title, A
-	;MsgBox, The active window is "%Title%".
 	;MsgBox %windowName%
 	;WinClose, %windowName%
 	Process,Exist, %exe_name%
 	If ErrorLevel
 		Process,Close,%Errorlevel%
 }
+
+
+;https://autohotkey.com/board/topic/98317-if-process-exist-command/
+ProcessExist(Name){
+	Process,Exist,%Name%
+	return Errorlevel
+}
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
