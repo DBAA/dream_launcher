@@ -8,7 +8,6 @@ public:
 	void update();
 	void draw();
 
-	//void startAnimation(ofVec2f _startPos, ofVec2f _endPos, float time);
 	void startAnimation(float time);
 
 	ofImage iconPic;
@@ -23,17 +22,6 @@ public:
 	float animEndTime;
 
 	ofVec2f startPos, endPos;
-	//float startScale, targetScale;
-	//float startAlpha, targetAlpha;
-
-	//showing the info
-	//THIS SHOULD MAYBE BE A DIFFERENT CLASS
-	string titleText;
-	string byLineText;
-	string infoText;
-
-	ofImage screenshot;
-
 
 	//testing
 	int idTestNum;

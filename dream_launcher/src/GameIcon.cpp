@@ -30,10 +30,9 @@ void GameIcon::draw() {
 	ofTranslate(pos.x, pos.y);
 	ofScale(scale, scale);
 	ofSetColor(testCol.r, testCol.g, testCol.b, alpha);
+	ofFill();
 	ofDrawRectangle(-testW / 2, -testH / 2, testW, testH);
-	ofSetColor(0);
-	ofDrawBitmapString(ofToString(idTestNum), 0, 0);
-	ofDrawBitmapString(ofToString((int)alpha), 0, 16);
+	
 	ofPopMatrix();
 
 }
@@ -42,13 +41,3 @@ void GameIcon::startAnimation(float time) {
 	animEndTime = time;
 	animTimer = 0;
 }
-
-/*
-void GameIcon::startAnimation(ofVec2f _startPos, ofVec2f _endPos, float time) {
-	startPos = _startPos;
-	endPos = _endPos;
-	animEndTime = time;
-	animTimer = 0;
-
-}
-*/

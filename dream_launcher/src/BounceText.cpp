@@ -8,7 +8,7 @@ void BounceText::setup(string fontPath, int _fontSize) {
 	waveStep = 0.4f;
 	waveSize = fontSize * 0.25;
 
-	charSpacing = 1;
+	charSpacing = 1 + fontSize * 0.1;
 	spaceWidth = font.stringWidth("o");
 	lineHeight = font.getLineHeight() * 1.25;
 }

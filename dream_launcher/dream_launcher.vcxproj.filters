@@ -13,6 +13,9 @@
     <ClCompile Include="src\GameIcon.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameInfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -27,6 +30,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\GameIcon.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameInfo.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

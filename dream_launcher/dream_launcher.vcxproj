@@ -173,12 +173,14 @@
   <ItemGroup>
     <ClCompile Include="src\BounceText.cpp" />
     <ClCompile Include="src\GameIcon.cpp" />
+    <ClCompile Include="src\GameInfo.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BounceText.h" />
     <ClInclude Include="src\GameIcon.h" />
+    <ClInclude Include="src\GameInfo.h" />
     <ClInclude Include="src\ofApp.h" />
   </ItemGroup>
   <ItemGroup>

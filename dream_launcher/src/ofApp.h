@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "BounceText.h"
 #include "GameIcon.h"
+#include "GameInfo.h"
 #include <windows.h>
 
 class ofApp : public ofBaseApp{
@@ -34,12 +35,14 @@ class ofApp : public ofBaseApp{
 		bool isFullScreened();
 
 
-		BounceText testFont;
+		BounceText titleFont, byLineFont, infoFont;
 
 		vector<GameIcon> icons;
+		vector<GameInfo> info;
 		int curSelection, oldSelection;
 
 		float selectionAnimationTime;
+		float selectionAnimationTimer;
 
 #define NUM_ICON_ANCHORS 5
 		ofVec2f iconAnchorPoints[NUM_ICON_ANCHORS];

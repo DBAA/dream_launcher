@@ -8,26 +8,47 @@ void ofApp::setup(){
 	ofSetWindowTitle("dream_launcher");
 	//FreeConsole();	//hides the console
 
-	testFont.setup("ChevyRay - Thicket Mono.ttf", 20);
+	titleFont.setup("ChevyRay - Thicket Mono.ttf", 42);
+	byLineFont.setup("ChevyRay - Thicket Mono.ttf", 34);
+	infoFont.setup("ChevyRay - Thicket Mono.ttf", 28);
+	infoFont.waveSize = 3;
 
 	selectionAnimationTime = 0.2f;
+	selectionAnimationTimer = 0;
 	
 	setScreenPoints();
 
 	curSelection = 0;
 
-	icons.resize(7);
+	//icons
+	icons.resize(6);
 	icons[0].testCol = ofColor::red;
 	icons[1].testCol = ofColor::royalBlue;
 	icons[2].testCol = ofColor::purple;
 	icons[3].testCol = ofColor::forestGreen;
 	icons[4].testCol = ofColor::orange;
 	icons[5].testCol = ofColor::paleTurquoise;
-	icons[6].testCol = ofColor::goldenRod;
-
+	
 	for (int i = 0; i < icons.size(); i++) {
 		icons[i].animCurve = 1;
 		icons[i].idTestNum = i;
+	}
+
+	//game info
+	info.resize(icons.size());
+
+	info[0].setup("BUNT", "By starbo", "thrilling thrilling thrilling. A thrilling time.", "none");
+	info[1].setup("Flim Flam Quest", "By Jummie", "Is this quest for real... or it is a flim flam?.", "none");
+	info[2].setup("Brine and Gore", "By Dang Sutinworry, Poundle Kram and Minchers", "Ride on a boat smacking aquatic life until it isn't there anymore.", "none");
+	info[3].setup("Is this a nose?", "By Prinle & Chift", "Do you think you know the answer. If you can detect if it is a nose then you will get to wear the nose crown all day.", "none");
+	info[4].setup("Copyright Smackdown", "By Mips Hallobew", "I found it on google! Is that ok for me to use?", "none");
+	info[5].setup("The Tunnel That Wouldn't Stop", "By krim, kram and zootle", "Prepare to run infinitely, brother", "none");
+
+	for (int i = 0; i < info.size(); i++) {
+		info[i].titleFont = &titleFont;
+		info[i].byLineFont = &byLineFont;
+		info[i].infoFont = &infoFont;
+		info[i].testCol = icons[i].testCol;
 	}
 
 	cycleSelection(3, 4);
@@ -55,6 +76,8 @@ void ofApp::update(){
 	for (int i = 0; i < icons.size(); i++) {
 		icons[i].update();
 	}
+
+	selectionAnimationTimer += ofGetLastFrameTime();
 }
 
 //--------------------------------------------------------------
@@ -66,13 +89,20 @@ void ofApp::draw(){
 		icons[i].draw();
 	}
 
+	float selectionAnimPrc = selectionAnimationTimer / selectionAnimationTime;
+	selectionAnimPrc = MIN(selectionAnimPrc, 1);
+	//draw the info for this game, crossfading when the seleciton changes
+	info[curSelection].draw(255 * selectionAnimPrc);
+	
+	if (selectionAnimPrc < 1.0) {
+		info[oldSelection].draw(255 * (1.0 - selectionAnimPrc));
+	}
+
 	//test text
 
-	ofSetColor(0);
-	testFont.draw("Hello my sweet baby. How are you on this Hello fine day?", 40, ofGetHeight() - 100, 800);
-
-	ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
-	ofDrawBitmapString(ofToString(ofGetWidth()) + "  " + ofToString(ofGetHeight()), 100, 600);
+	
+	//ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
+	//ofDrawBitmapString(ofToString(ofGetWidth()) + "  " + ofToString(ofGetHeight()), 100, 600);
 
 
 	//testing
@@ -85,6 +115,8 @@ void ofApp::cycleSelection(int _oldSelection, int newSelection) {
 	
 	curSelection = newSelection;
 	oldSelection = _oldSelection;
+
+	selectionAnimationTimer = 0;
 
 	//cout << "going from "<<oldSelection << " to " << curSelection << endl;
 
