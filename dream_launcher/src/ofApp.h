@@ -2,14 +2,19 @@
 
 #include "ofMain.h"
 #include "BounceText.h"
+#include "GameIcon.h"
 #include <windows.h>
 
 class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
+		void setScreenPoints();
 		void update();
 		void draw();
+
+		void cycleSelection(int _oldSelection, int newSelection);
+
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -30,4 +35,12 @@ class ofApp : public ofBaseApp{
 
 
 		BounceText testFont;
+
+		vector<GameIcon> icons;
+		int curSelection, oldSelection;
+
+		float selectionAnimationTime;
+
+#define NUM_ICON_ANCHORS 5
+		ofVec2f iconAnchorPoints[NUM_ICON_ANCHORS];
 };
