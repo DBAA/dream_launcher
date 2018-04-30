@@ -4,6 +4,9 @@
 void ofApp::setup(){
 	ofSetWindowTitle("dream_launcher");
 	//FreeConsole();	//hides the console
+
+	testFont.setup("ChevyRay - Thicket Mono.ttf", 20);
+	//ofToggleFullscreen();	//testing
 }
 
 //--------------------------------------------------------------
@@ -17,6 +20,9 @@ void ofApp::draw(){
 	ofDrawBitmapString("DREAM", ofGetWidth()/2, ofGetHeight() / 2);
 
 	ofDrawBitmapString(ofToString(ofGetScreenHeight()) + "  " + ofToString(ofGetHeight()), 100, 600);
+
+	ofSetColor(0);
+	testFont.draw("Hello my sweet baby. How are you on this Hello fine day?", 40, 200, 800);
 
 }
 

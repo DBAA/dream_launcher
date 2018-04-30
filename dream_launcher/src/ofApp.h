@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "BounceText.h"
 #include <windows.h>
 
 class ofApp : public ofBaseApp{
@@ -27,4 +28,6 @@ class ofApp : public ofBaseApp{
 
 		bool isFullScreened();
 
+
+		BounceText testFont;
 };
