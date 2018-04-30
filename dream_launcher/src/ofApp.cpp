@@ -171,11 +171,11 @@ void ofApp::cycleSelection(int _oldSelection, int newSelection) {
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-	if (key == 'a') {
-		cycleSelection(curSelection, (curSelection+icons.size()-1)%icons.size());
+void ofApp::keyPressed(int key) {
+	if (key == 'a' || key == 'A' || key == OF_KEY_LEFT) {
+		cycleSelection(curSelection, (curSelection + icons.size() - 1) % icons.size());
 	}
-	if (key == 'd') {
+	if (key == 'd' || key == 'D' || key == OF_KEY_RIGHT) {
 		cycleSelection(curSelection, (curSelection + 1) % icons.size());
 	}
 
