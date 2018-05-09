@@ -8,11 +8,11 @@ void GameInfo::setup(string title, string byLine, string info, string path) {
 }
 
 void GameInfo::draw(float alpha) {
-	float screenshotW = 800;
-	float screenshotH = 600;
+	float screenshotW = 720;
+	float screenshotH = 540;
 
 	float borderPaddingX = 100;
-	float startY = ofGetHeight() * 0.35;
+	float startY = ofGetHeight() * 0.4;
 
 	float screenShotX = ofGetWidth() - screenshotW - borderPaddingX;
 

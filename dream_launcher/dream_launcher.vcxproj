@@ -176,12 +176,14 @@
     <ClCompile Include="src\GameInfo.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\TopText.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BounceText.h" />
     <ClInclude Include="src\GameIcon.h" />
     <ClInclude Include="src\GameInfo.h" />
     <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="src\TopText.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

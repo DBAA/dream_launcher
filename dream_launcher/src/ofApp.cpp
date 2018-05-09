@@ -13,8 +13,12 @@ void ofApp::setup(){
 	infoFont.setup("ChevyRay - Thicket Mono.ttf", 28);
 	infoFont.waveSize = 3;
 
+	bottomInfoFont.load("ChevyRay - Thicket Mono.ttf", 13);
+
 	selectionAnimationTime = 0.2f;
 	selectionAnimationTimer = 0;
+
+	topText.setup("Select Game");
 	
 	setScreenPoints();
 
@@ -51,13 +55,15 @@ void ofApp::setup(){
 		info[i].testCol = icons[i].testCol;
 	}
 
+	dbaaLogo.load("dba_noText-01_small.png");
+
 	cycleSelection(3, 4);
 }
 
 //--------------------------------------------------------------
 void ofApp::setScreenPoints() {
 	for (int i = 0; i < NUM_ICON_ANCHORS; i++) {
-		iconAnchorPoints[i].y = ofGetHeight() * 0.15f;
+		iconAnchorPoints[i].y = ofGetHeight() * 0.23f;
 	}
 
 	iconAnchorPoints[2].x = ofGetWidth() * 0.5;
@@ -83,6 +89,9 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	
+	//top text
+	ofSetColor(0);
+	topText.draw(ofGetWidth() / 2, ofGetHeight() * 0.04);
 
 	//icons
 	for (int i = 0; i < icons.size(); i++) {
@@ -98,16 +107,21 @@ void ofApp::draw(){
 		info[oldSelection].draw(255 * (1.0 - selectionAnimPrc));
 	}
 
-	//test text
 
-	
-	//ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
-	//ofDrawBitmapString(ofToString(ofGetWidth()) + "  " + ofToString(ofGetHeight()), 100, 600);
+	//logo
+	float logoScale = 0.35;
+	ofPushMatrix();
+	ofTranslate(ofGetWidth()*0.05, ofGetHeight() * 0.94);
+	ofSetColor(255);
+	ofScale(logoScale, logoScale);
+	ofRotate( ofMap( sin(ofGetElapsedTimef()), -1, 1, -10, -25) );
+	dbaaLogo.draw(-dbaaLogo.getWidth() / 2, -dbaaLogo.getHeight() / 2);
+	ofPopMatrix();
 
-
-	//testing
-	//cout << "icon x " << icons[3].pos.x << endl;
-
+	//info
+	string bottomInfoText = "Queer Matrixxx Arcade Machine brought to you by Death By Audio Arcade * DeathByAudioArcade.com * @DBAArcade * Give us some love";
+	ofSetColor(0);
+	bottomInfoFont.drawString(bottomInfoText, ofGetWidth() * 0.1, ofGetHeight() * 0.99);
 }
 
 //--------------------------------------------------------------

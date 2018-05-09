@@ -16,6 +16,9 @@
     <ClCompile Include="src\GameInfo.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\TopText.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -33,6 +36,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\GameInfo.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TopText.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

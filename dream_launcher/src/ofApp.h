@@ -4,6 +4,7 @@
 #include "BounceText.h"
 #include "GameIcon.h"
 #include "GameInfo.h"
+#include "TopText.h"
 #include <windows.h>
 
 class ofApp : public ofBaseApp{
@@ -46,4 +47,9 @@ class ofApp : public ofBaseApp{
 
 #define NUM_ICON_ANCHORS 5
 		ofVec2f iconAnchorPoints[NUM_ICON_ANCHORS];
+
+		TopText topText;
+
+		ofImage dbaaLogo;
+		ofTrueTypeFont bottomInfoFont;
 };
