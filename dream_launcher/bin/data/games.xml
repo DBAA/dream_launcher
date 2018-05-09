@@ -1,0 +1,52 @@
+<GAMES>
+	<GAME>
+		<TITLE>Bleep Space</TITLE>
+		<CREDITS>By Andy Wallace</CREDITS>
+		<INFO>Bleep bleep bloop bloop</INFO>
+		<EXE_PATH>C:/Users/andy_/Documents/dbaa_launcher/bleep_space_win_1.55/BleepSpace.exe</EXE_PATH>
+		<ICON>bleep_icon.png</ICON>
+		<SCREENSHOT>bleep_pic.png</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>Super Textagon</TITLE>
+		<CREDITS>By Andy Wallace and Terry Cavanagh</CREDITS>
+		<INFO>It is a joke that you can play</INFO>
+		<EXE_PATH>C:/Users/andy_/Documents/dbaa_launcher/textagon/textagon.html</EXE_PATH>
+		<IS_WEB>TRUE</IS_WEB>
+		<ICON>text_icon.jpg</ICON>
+		<SCREENSHOT>text_screenshot.jpg</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>Flim Flam Quest</TITLE>
+		<CREDITS>By Jummi</CREDITS>
+		<INFO>Is this quest for real... or it is a flim flam?</INFO>
+		<EXE_PATH>none</EXE_PATH>
+		<ICON>flim_flam_icon.png</ICON>
+		<SCREENSHOT>flim_flam_pic.jpg</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>Is this a nose?</TITLE>
+		<CREDITS>By Prinle + Chift</CREDITS>
+		<INFO>Do you think you know the answer. If you can detect if it is a nose then you will get to wear the nose crown all day.</INFO>
+		<EXE_PATH>none</EXE_PATH>
+		<ICON>nose_icon.png</ICON>
+		<SCREENSHOT>nose_shot.jpg</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>The Tunnel That Wouldn't Stop</TITLE>
+		<CREDITS>By krim, kram and zootle</CREDITS>
+		<INFO>Prepare to run infinitely, brother</INFO>
+		<EXE_PATH>none</EXE_PATH>
+		<ICON>tunnel_icon.png</ICON>
+		<SCREENSHOT>tunnel_pic.png</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>BUNT</TITLE>
+		<CREDITS>By Starbo</CREDITS>
+		<INFO>thrilling thrilling thrilling. A thrilling time.</INFO>
+		<EXE_PATH>bad path</EXE_PATH>
+		<ICON>bunt_icon.jpg</ICON>
+		<SCREENSHOT>bunt_screen.png</SCREENSHOT>
+	</GAME>
+</GAMES>
+

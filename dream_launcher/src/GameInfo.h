@@ -18,6 +18,7 @@ public:
 	ofColor testCol;
 
 	string executablePath;
+	bool isWeb;
 
 	BounceText * titleFont, * byLineFont, * infoFont;
 

@@ -14,7 +14,7 @@ public:
 
 	ofVec2f pos;
 
-	ofColor testCol;
+	//ofColor testCol;
 
 	//animating
 	float animTimer;

@@ -24,7 +24,12 @@ void ofApp::setup(){
 
 	curSelection = 0;
 
+	info.clear();
+	icons.clear();
+	loadXML();
+
 	//icons
+	/*
 	icons.resize(6);
 	icons[0].testCol = ofColor::red;
 	icons[1].testCol = ofColor::royalBlue;
@@ -32,6 +37,7 @@ void ofApp::setup(){
 	icons[3].testCol = ofColor::forestGreen;
 	icons[4].testCol = ofColor::orange;
 	icons[5].testCol = ofColor::paleTurquoise;
+	*/
 	
 	for (int i = 0; i < icons.size(); i++) {
 		icons[i].animCurve = 1;
@@ -39,25 +45,69 @@ void ofApp::setup(){
 	}
 
 	//game info
-	info.resize(icons.size());
+	
+	//info.resize(icons.size());
 
+	/*
 	info[0].setup("BUNT", "By starbo", "thrilling thrilling thrilling. A thrilling time.", "none");
 	info[1].setup("Flim Flam Quest", "By Jummie", "Is this quest for real... or it is a flim flam?.", "none");
 	info[2].setup("Brine and Gore", "By Dang Sutinworry, Poundle Kram and Minchers", "Ride on a boat smacking aquatic life until it isn't there anymore.", "none");
 	info[3].setup("Is this a nose?", "By Prinle & Chift", "Do you think you know the answer. If you can detect if it is a nose then you will get to wear the nose crown all day.", "none");
 	info[4].setup("Copyright Smackdown", "By Mips Hallobew", "I found it on google! Is that ok for me to use?", "none");
 	info[5].setup("The Tunnel That Wouldn't Stop", "By krim, kram and zootle", "Prepare to run infinitely, brother", "none");
+	*/
 
 	for (int i = 0; i < info.size(); i++) {
 		info[i].titleFont = &titleFont;
 		info[i].byLineFont = &byLineFont;
 		info[i].infoFont = &infoFont;
-		info[i].testCol = icons[i].testCol;
+		//info[i].testCol = icons[i].testCol;
 	}
 
 	dbaaLogo.load("dba_noText-01_small.png");
 
 	cycleSelection(3, 4);
+}
+//--------------------------------------------------------------
+void ofApp::loadXML() {
+	ofXml xml;
+	if (xml.load("games.xml") == false) {
+		cout << "bad xml file" << endl;
+		return;
+	}
+
+	//go through the games
+	xml.setTo("GAME[0]");
+	do {
+		GameIcon thisIcon;
+		thisIcon.iconPic.load("images/"+xml.getValue<string>("ICON"));
+
+		GameInfo thisGameInfo;
+		string gameTitle = xml.getValue<string>("TITLE");
+		string byLine = xml.getValue<string>("CREDITS");
+		string infoText = xml.getValue<string>("INFO");
+		string path = xml.getValue<string>("EXE_PATH");
+		thisGameInfo.setup(gameTitle, byLine, infoText, path);
+		thisGameInfo.screenshot.load("images/" + xml.getValue<string>("SCREENSHOT"));
+		if (xml.exists("IS_WEB")) {
+			if (xml.getValue<bool>("IS_WEB")) {
+				cout << "web is real" << endl;
+				thisGameInfo.isWeb = true;
+			}
+		}
+
+		icons.push_back(thisIcon);
+		info.push_back(thisGameInfo);
+	} while (xml.setToSibling());
+	/*
+	if (xml.exists("GAME")) {
+		cout << "it there" << endl;
+		xml.setTo("GAME[0]");
+		
+	}
+	*/
+
+
 }
 
 //--------------------------------------------------------------
@@ -186,11 +236,24 @@ void ofApp::cycleSelection(int _oldSelection, int newSelection) {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
+	//left and right
 	if (key == 'a' || key == 'A' || key == OF_KEY_LEFT) {
 		cycleSelection(curSelection, (curSelection + icons.size() - 1) % icons.size());
 	}
 	if (key == 'd' || key == 'D' || key == OF_KEY_RIGHT) {
 		cycleSelection(curSelection, (curSelection + 1) % icons.size());
+	}
+
+	//all player buttons act as selecitons
+	if (key == 'C' || key == 'c' || key == 'V' || key == 'v' || key == 'N' || key == 'n' || key == 'M' || key == 'm') {
+		cout << "launch " << info[curSelection].titleText << endl;
+		if (info[curSelection].isWeb) {
+			ofToggleFullscreen();
+			launchWeb(info[curSelection].executablePath);
+		}
+		else {
+			launchExe(info[curSelection].executablePath);
+		}
 	}
 
 	//cout << "ya pressed " << key << endl;

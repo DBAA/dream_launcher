@@ -29,10 +29,22 @@ void GameIcon::draw() {
 	ofPushMatrix();
 	ofTranslate(pos.x, pos.y);
 	ofScale(scale, scale);
-	ofSetColor(testCol.r, testCol.g, testCol.b, alpha);
-	ofFill();
-	ofDrawRectangle(-testW / 2, -testH / 2, testW, testH);
-	
+	ofSetColor(255, alpha);
+	iconPic.draw(-testW / 2, -testH / 2, testW, testH);
+
+	//outline
+	int outlineSize = 3;
+	ofSetColor(0, alpha);
+	//top
+	ofRect(-testW / 2 - outlineSize, -testH / 2 - outlineSize, testW + outlineSize * 2, outlineSize);
+	//bottom
+	ofRect(-testW / 2 - outlineSize, testH / 2 , testW + outlineSize * 2, outlineSize);
+	//left
+	ofRect(-testW / 2 - outlineSize, -testH/2 , outlineSize, testH);
+	//right
+	ofRect(testW / 2 , -testH / 2, outlineSize, testH);
+
+
 	ofPopMatrix();
 
 }

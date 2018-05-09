@@ -11,6 +11,7 @@ class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
+		void loadXML();
 		void setScreenPoints();
 		void update();
 		void draw();
@@ -52,4 +53,6 @@ class ofApp : public ofBaseApp{
 
 		ofImage dbaaLogo;
 		ofTrueTypeFont bottomInfoFont;
+
+		
 };

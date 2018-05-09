@@ -5,6 +5,7 @@ void GameInfo::setup(string title, string byLine, string info, string path) {
 	byLineText = byLine;
 	infoText = info;
 	executablePath = path;
+	isWeb = false;
 }
 
 void GameInfo::draw(float alpha) {
@@ -19,9 +20,13 @@ void GameInfo::draw(float alpha) {
 	float textW = screenShotX - borderPaddingX * 1;
 
 	//testing until we have screenshots
-	ofSetColor(testCol.r, testCol.g, testCol.b, alpha);
-	ofFill();
-	ofDrawRectangle(screenShotX, startY, screenshotW, screenshotH);
+	//ofSetColor(testCol.r, testCol.g, testCol.b, alpha);
+	//ofFill();
+	//ofDrawRectangle(screenShotX, startY, screenshotW, screenshotH);
+
+	//drawing the screenshot
+	ofSetColor(255, alpha);
+	screenshot.draw(screenShotX, startY, screenshotW, screenshotH);
 
 	ofSetColor(0, alpha);
 
