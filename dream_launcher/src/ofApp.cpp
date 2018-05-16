@@ -14,7 +14,7 @@ void ofApp::setup(){
 	infoFont.setup("ChevyRay - Thicket Mono.ttf", 28);
 	infoFont.waveSize = 3;
 
-	bottomInfoFont.load("ChevyRay - Thicket Mono.ttf", 13);
+	bottomInfoFont.load("ChevyRay - Thicket Mono.ttf", 15);
 
 	selectionAnimationTime = 0.2f;
 	selectionAnimationTimer = 0;
@@ -129,7 +129,7 @@ void ofApp::draw(){
 	
 	//top text
 	ofSetColor(0);
-	topText.draw(ofGetWidth() / 2, ofGetHeight() * 0.04);
+	topText.draw(ofGetWidth() / 2, ofGetHeight() * 0.05);
 
 	//icons
 	for (int i = 0; i < icons.size(); i++) {
@@ -149,7 +149,7 @@ void ofApp::draw(){
 	//logo
 	float logoScale = 0.35;
 	ofPushMatrix();
-	ofTranslate(ofGetWidth()*0.05, ofGetHeight() * 0.94);
+	ofTranslate(ofGetWidth()*0.06, ofGetHeight() * 0.94);
 	ofSetColor(255);
 	ofScale(logoScale, logoScale);
 	ofRotate( ofMap( sin(ofGetElapsedTimef()), -1, 1, -10, -25) );
@@ -157,9 +157,9 @@ void ofApp::draw(){
 	ofPopMatrix();
 
 	//info
-	string bottomInfoText = "DreamboxXx Arcade Machine brought to you by Death By Audio Arcade * DeathByAudioArcade.com * @DBAArcade * Give us some love";
+	string bottomInfoText = "DreamboxXx Arcade Machine brought to you by Death By Audio Arcade * DeathByAudioArcade.com * @DBAArcade";
 	ofSetColor(0);
-	bottomInfoFont.drawString(bottomInfoText, ofGetWidth() * 0.1, ofGetHeight() * 0.97);
+	bottomInfoFont.drawString(bottomInfoText, ofGetWidth() * 0.12, ofGetHeight() * 0.97);
 }
 
 //--------------------------------------------------------------
@@ -173,53 +173,54 @@ void ofApp::cycleSelection(int _oldSelection, int newSelection) {
 	//cout << "going from "<<oldSelection << " to " << curSelection << endl;
 
 	bool goingUp = (oldSelection + 1) % icons.size() == curSelection;
-	//cout << "go up " << goingUp << endl;
-
-	float offScreenPadding = 400;
-
-	//first push everything way off screen
+	
+	//set the positions
 	for (int i = 0; i < icons.size(); i++) {
-		icons[i].animTimer = 9999;
-		icons[i].startPos.x = 9999;
-		icons[i].endPos.x = 9999;
+		int endOrder = getRelativeIconOrder(i);
+		int startOrder = getRelativeIconOrder(i - 1);
+		if (goingUp) {
+			startOrder = getRelativeIconOrder(i + 1);
+		}
+		icons[i].startPos = getIconPos( startOrder );
+		icons[i].endPos = getIconPos(endOrder);
+
+		//dumb error checking
+		if ((icons[i].startPos.x < 0 && icons[i].endPos.x > ofGetWidth()) || (icons[i].startPos.x > ofGetWidth() && icons[i].endPos.x < 0)) {
+			icons[i].startPos = icons[i].endPos;
+		}
+
+		//kick it off
 		icons[i].startAnimation(selectionAnimationTime);
 	}
 
-	//then put the relevant ones in their starting positions
-	for (int i = -2; i <= 2; i++) {	//this assumes 5 anchor points
-		int thisID = (oldSelection + icons.size() + i) % icons.size();
-		icons[thisID].startPos = iconAnchorPoints[i + 2];
 
-		//assume the side ones will just go off screen
-		if (i == -2 && goingUp) {
-			icons[thisID].endPos.set(-offScreenPadding, iconAnchorPoints[0].y);
-		}
-		if (i == 2 && !goingUp) {
-			icons[thisID].endPos.set(ofGetWidth() + offScreenPadding, iconAnchorPoints[4].y);
-		}
+}
+
+//--------------------------------------------------------------
+int ofApp::getRelativeIconOrder(int iconID) {
+	int relativePos = iconID - curSelection;
+	if (relativePos < -4) {
+		relativePos += icons.size();
 	}
-
-	//and the ending points
-	for (int i = -2; i <= 2; i++) {	//this assumes 5 anchor points
-		int thisID = (curSelection + icons.size() + i) % icons.size();
-		icons[thisID].endPos = iconAnchorPoints[i + 2];
-		//cout << i << " this icon " << thisID << endl;
-
-		//assume the side ones will just come from off screen
-		if (i == -2 && !goingUp) {
-			icons[thisID].startPos.set(-offScreenPadding, iconAnchorPoints[0].y);
-		}
-		if (i == 2 && goingUp) {
-			icons[thisID].startPos.set(ofGetWidth() + offScreenPadding, iconAnchorPoints[4].y);
-		}
+	if (relativePos > 4) {
+		relativePos -= icons.size();
 	}
+	return relativePos;
+}
 
-	//testing
-	/*
-	for (int i = 0; i < icons.size(); i++) {
-		cout << i << " start " << icons[i].startPos.x << "  end " << icons[i].endPos.x << endl;
-	}
-	*/
+//--------------------------------------------------------------
+//0 is center
+ofVec2f ofApp::getIconPos(int slotNum) {
+	ofVec2f pos;
+	pos.y = ofGetHeight() * 0.23 - abs(slotNum) * ofGetHeight() * 0.01;
+	
+	float distPrc = (float)slotNum / 3.0;
+	float curvePrc = powf(abs(distPrc), 0.85);
+	float spacing = ofGetWidth() * 0.55;
+	if (slotNum < 0)	spacing *= -1;
+	pos.x = ofGetWidth() / 2 + curvePrc * spacing;
+
+	return pos;
 }
 
 //--------------------------------------------------------------

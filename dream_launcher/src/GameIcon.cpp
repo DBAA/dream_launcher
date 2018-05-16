@@ -23,7 +23,8 @@ void GameIcon::draw() {
 	//calculate alpha and scale based on position
 	float distFromCenter = abs(ofGetWidth() / 2 - pos.x);
 	float prcDistFromCenter = 1.0 - distFromCenter / (float)(ofGetWidth() / 2);
-	float alpha = powf(prcDistFromCenter, 0.7) * 255;
+	float curvePrc = powf(prcDistFromCenter, 0.7);
+	float alpha = (1.0f - curvePrc) * 50 + 255 * curvePrc;
 	float scale = (1.0f - prcDistFromCenter) * 0.5 + prcDistFromCenter * 1.0;
 
 	ofPushMatrix();

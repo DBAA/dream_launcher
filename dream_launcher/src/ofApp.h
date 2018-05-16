@@ -18,6 +18,8 @@ class ofApp : public ofBaseApp{
 		void draw();
 
 		void cycleSelection(int _oldSelection, int newSelection);
+		int getRelativeIconOrder(int iconID);
+		ofVec2f getIconPos(int slotNum);
 
 
 		void keyPressed(int key);

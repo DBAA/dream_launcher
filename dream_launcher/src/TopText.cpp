@@ -2,7 +2,7 @@
 
 void TopText::setup(string _message) {
 	message = _message;
-	font.load("ChevyRay - Bubble Time.ttf", 50);
+	font.load("ChevyRay - Bubble Time.ttf", 60);
 }
 
 void TopText::draw(float centerX, float yPos) {
@@ -13,7 +13,7 @@ void TopText::draw(float centerX, float yPos) {
 
 	float dipDist = 20;
 
-	float charSpacing = 2;
+	float charSpacing = 4;
 
 	float totalTime = timePerChar*message.length() + pauseTime;
 	float timer = fmod(ofGetElapsedTimef(), totalTime);
