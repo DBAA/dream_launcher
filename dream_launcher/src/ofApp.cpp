@@ -3,6 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetFrameRate(60);
+	ofBackground(255, 180, 180);
 	ofEnableAlphaBlending();
 
 	ofSetWindowTitle("dream_launcher");
@@ -28,35 +29,13 @@ void ofApp::setup(){
 	icons.clear();
 	loadXML();
 
-	//icons
-	/*
-	icons.resize(6);
-	icons[0].testCol = ofColor::red;
-	icons[1].testCol = ofColor::royalBlue;
-	icons[2].testCol = ofColor::purple;
-	icons[3].testCol = ofColor::forestGreen;
-	icons[4].testCol = ofColor::orange;
-	icons[5].testCol = ofColor::paleTurquoise;
-	*/
-	
+	//icon basic settings
 	for (int i = 0; i < icons.size(); i++) {
 		icons[i].animCurve = 1;
 		icons[i].idTestNum = i;
 	}
 
-	//game info
-	
-	//info.resize(icons.size());
-
-	/*
-	info[0].setup("BUNT", "By starbo", "thrilling thrilling thrilling. A thrilling time.", "none");
-	info[1].setup("Flim Flam Quest", "By Jummie", "Is this quest for real... or it is a flim flam?.", "none");
-	info[2].setup("Brine and Gore", "By Dang Sutinworry, Poundle Kram and Minchers", "Ride on a boat smacking aquatic life until it isn't there anymore.", "none");
-	info[3].setup("Is this a nose?", "By Prinle & Chift", "Do you think you know the answer. If you can detect if it is a nose then you will get to wear the nose crown all day.", "none");
-	info[4].setup("Copyright Smackdown", "By Mips Hallobew", "I found it on google! Is that ok for me to use?", "none");
-	info[5].setup("The Tunnel That Wouldn't Stop", "By krim, kram and zootle", "Prepare to run infinitely, brother", "none");
-	*/
-
+	//info basic settings
 	for (int i = 0; i < info.size(); i++) {
 		info[i].titleFont = &titleFont;
 		info[i].byLineFont = &byLineFont;
@@ -66,7 +45,11 @@ void ofApp::setup(){
 
 	dbaaLogo.load("dba_noText-01_small.png");
 
-	cycleSelection(3, 4);
+
+	background.setup();
+
+	cycleSelection(1, 1);
+
 }
 //--------------------------------------------------------------
 void ofApp::loadXML() {
@@ -134,10 +117,15 @@ void ofApp::update(){
 	}
 
 	selectionAnimationTimer += ofGetLastFrameTime();
+
+	background.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+
+	//background
+	background.draw();
 	
 	//top text
 	ofSetColor(0);
@@ -169,9 +157,9 @@ void ofApp::draw(){
 	ofPopMatrix();
 
 	//info
-	string bottomInfoText = "Queer Matrixxx Arcade Machine brought to you by Death By Audio Arcade * DeathByAudioArcade.com * @DBAArcade * Give us some love";
+	string bottomInfoText = "DreamboxXx Arcade Machine brought to you by Death By Audio Arcade * DeathByAudioArcade.com * @DBAArcade * Give us some love";
 	ofSetColor(0);
-	bottomInfoFont.drawString(bottomInfoText, ofGetWidth() * 0.1, ofGetHeight() * 0.99);
+	bottomInfoFont.drawString(bottomInfoText, ofGetWidth() * 0.1, ofGetHeight() * 0.97);
 }
 
 //--------------------------------------------------------------
@@ -239,9 +227,11 @@ void ofApp::keyPressed(int key) {
 	//left and right
 	if (key == 'a' || key == 'A' || key == OF_KEY_LEFT) {
 		cycleSelection(curSelection, (curSelection + icons.size() - 1) % icons.size());
+		background.offsetInt--;
 	}
 	if (key == 'd' || key == 'D' || key == OF_KEY_RIGHT) {
 		cycleSelection(curSelection, (curSelection + 1) % icons.size());
+		background.offsetInt++;
 	}
 
 	//all player buttons act as selecitons

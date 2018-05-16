@@ -5,6 +5,7 @@
 #include "GameIcon.h"
 #include "GameInfo.h"
 #include "TopText.h"
+#include "Background.hpp"
 #include <windows.h>
 
 class ofApp : public ofBaseApp{
@@ -54,5 +55,6 @@ class ofApp : public ofBaseApp{
 		ofImage dbaaLogo;
 		ofTrueTypeFont bottomInfoFont;
 
+		Background background;
 		
 };

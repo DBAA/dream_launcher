@@ -50,7 +50,7 @@ void Background::draw(){
             curCol = colors.size()-1;
         }
     }
-    cout<<"move it back "<<testo<<" times"<<endl;
+    //cout<<"move it back "<<testo<<" times"<<endl;
     
     testo = 0;
     while (curY < -paddingY){
@@ -61,7 +61,7 @@ void Background::draw(){
             curCol = 0;
         }
     }
-    cout<<"move it forward "<<testo<<" times"<<endl;
+    //cout<<"move it forward "<<testo<<" times"<<endl;
     
     //actually draw them
     
@@ -70,10 +70,11 @@ void Background::draw(){
         
         float distPrc = curY/ofGetHeight();
         float extraSpacing = powf( distPrc, 2) * 1000 ;//(curY - ofGetHeight()/2) * 0.9;
+		//extraSpacing = MAX(extraSpacing, -barH);
         
-        float thisY = curY + extraSpacing;// - 100;
+		float thisY = curY + extraSpacing -70;
         
-        cout<<"y "<<curY<<"  extra "<<extraSpacing<<"  final "<<thisY<<endl;
+        //cout<<"y "<<curY<<"  extra "<<extraSpacing<<"  final "<<thisY<<endl;
         
         ofSetColor(colors[curCol]);
         barPic.draw(0, thisY);
@@ -87,7 +88,7 @@ void Background::draw(){
         totalDrawn++;
     }
     
-    cout<<"I drew "<<totalDrawn<<endl;
+    //cout<<"I drew "<<totalDrawn<<endl;
     
     
     //fade the whole thing out

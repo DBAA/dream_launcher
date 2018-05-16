@@ -171,6 +171,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Background.cpp" />
     <ClCompile Include="src\BounceText.cpp" />
     <ClCompile Include="src\GameIcon.cpp" />
     <ClCompile Include="src\GameInfo.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="src\TopText.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Background.hpp" />
     <ClInclude Include="src\BounceText.h" />
     <ClInclude Include="src\GameIcon.h" />
     <ClInclude Include="src\GameInfo.h" />
