@@ -21,9 +21,9 @@ void ofApp::setup(){
 
 	topText.setup("Select Game");
 	
-	setScreenPoints();
-
 	curSelection = 0;
+
+	background.setup();
 
 	info.clear();
 	icons.clear();
@@ -46,7 +46,6 @@ void ofApp::setup(){
 	dbaaLogo.load("dba_noText-01_small.png");
 
 
-	background.setup();
 
 	cycleSelection(1, 1);
 
@@ -55,7 +54,7 @@ void ofApp::setup(){
 void ofApp::loadXML() {
 	ofXml xml;
 	if (xml.load("games.xml") == false) {
-		cout << "bad xml file" << endl;
+		cout << "bad games xml file" << endl;
 		return;
 	}
 
@@ -74,7 +73,6 @@ void ofApp::loadXML() {
 		thisGameInfo.screenshot.load("images/" + xml.getValue<string>("SCREENSHOT"));
 		if (xml.exists("IS_WEB")) {
 			if (xml.getValue<bool>("IS_WEB")) {
-				cout << "web is real" << endl;
 				thisGameInfo.isWeb = true;
 			}
 		}
@@ -82,33 +80,23 @@ void ofApp::loadXML() {
 		icons.push_back(thisIcon);
 		info.push_back(thisGameInfo);
 	} while (xml.setToSibling());
-	/*
-	if (xml.exists("GAME")) {
-		cout << "it there" << endl;
-		xml.setTo("GAME[0]");
-		
-	}
-	*/
 
+	xml.setToParent();
+	
+
+	//other settings
+	if (xml.load("settings.xml") == false) {
+		cout << "bad settings file" << endl;
+		return;
+	}
+	xml.setTo("SETTINGS");
+	background.bgGray = xml.getValue<int>("BG_GRAY");
+	background.bgAlpha = xml.getValue<int>("BG_ALPHA");
+
+	cout << background.bgGray << "  " << background.bgAlpha << endl;
 
 }
 
-//--------------------------------------------------------------
-void ofApp::setScreenPoints() {
-	for (int i = 0; i < NUM_ICON_ANCHORS; i++) {
-		iconAnchorPoints[i].y = ofGetHeight() * 0.23f;
-	}
-
-	iconAnchorPoints[2].x = ofGetWidth() * 0.5;
-	float dist1 = ofGetWidth() * 0.27;
-	float dist2 = ofGetWidth() * 0.48;
-	iconAnchorPoints[3].x = ofGetWidth() / 2 + dist1;
-	iconAnchorPoints[4].x = ofGetWidth() / 2 + dist2;
-
-	iconAnchorPoints[1].x = ofGetWidth() / 2 - dist1;
-	iconAnchorPoints[0].x = ofGetWidth() / 2 - dist2;
-
-}
 
 //--------------------------------------------------------------
 void ofApp::update(){
@@ -306,7 +294,7 @@ void ofApp::mouseExited(int x, int y){
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-	setScreenPoints();
+	
 }
 
 //--------------------------------------------------------------

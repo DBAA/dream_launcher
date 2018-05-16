@@ -92,7 +92,7 @@ void Background::draw(){
     
     
     //fade the whole thing out
-    ofSetColor(255, 150);
+	ofSetColor(bgGray, bgAlpha);
     ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     
     

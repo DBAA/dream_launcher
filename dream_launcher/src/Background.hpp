@@ -22,6 +22,8 @@ public:
     
     int offsetInt;
     float offsetY;
+
+	int bgGray, bgAlpha;
     
     
 };

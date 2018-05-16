@@ -28,9 +28,22 @@ void GameInfo::draw(float alpha) {
 	ofSetColor(255, alpha);
 	screenshot.draw(screenShotX, startY, screenshotW, screenshotH);
 
+	//outline
+	int outlineSize = 6;
 	ofSetColor(0, alpha);
+	//top
+	ofRect(screenShotX - outlineSize, startY - outlineSize, screenshotW + outlineSize * 2, outlineSize);
+	//bottom
+	ofRect(screenShotX - outlineSize, startY + screenshotH, screenshotW + outlineSize * 2, outlineSize);
+	//left
+	ofRect(screenShotX - outlineSize, startY, outlineSize, screenshotH);
+	//right
+	ofRect(screenShotX + screenshotW, startY, outlineSize, screenshotH);
+
+	
 
 	//title
+	ofSetColor(0, alpha);
 	float titleY = startY + titleFont->lineHeight + 10;
 	titleFont->draw(titleText, borderPaddingX, titleY, textW);
 

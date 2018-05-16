@@ -13,7 +13,6 @@ class ofApp : public ofBaseApp{
 	public:
 		void setup();
 		void loadXML();
-		void setScreenPoints();
 		void update();
 		void draw();
 
@@ -48,9 +47,6 @@ class ofApp : public ofBaseApp{
 
 		float selectionAnimationTime;
 		float selectionAnimationTimer;
-
-#define NUM_ICON_ANCHORS 5
-		ofVec2f iconAnchorPoints[NUM_ICON_ANCHORS];
 
 		TopText topText;
 
