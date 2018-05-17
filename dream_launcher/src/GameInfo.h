@@ -22,8 +22,12 @@ public:
 
 	BounceText * titleFont, * byLineFont, * infoFont;
 
-	float infoYPrc;
+	float textStartYPrc;
 	float textXPrc, textWPrc;
+	float textByLineYSpacingPrc;
+	float textInfoYSpacingPrc;
+	
 	float screenshotXPrc;
+	float screenshotYPrc;
 
 };

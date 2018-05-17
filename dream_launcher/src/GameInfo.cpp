@@ -13,15 +13,16 @@ void GameInfo::draw(float alpha, int titleColHex, int textColHex, int outlineCol
 	float screenshotH = 540;
 
 	//float borderPaddingX = 100;
-	float startY = ofGetHeight() * infoYPrc;// *0.4;
+	float textStartY = ofGetHeight() * textStartYPrc;
+	
+	float screenShotX = ofGetWidth() * screenshotXPrc;
+	float screenShotY = ofGetHeight() * screenshotYPrc;
 
-	float screenShotX = ofGetWidth() * screenshotXPrc;// -screenshotW - borderPaddingX;
-
-	float textW = ofGetWidth() * textWPrc;// screenShotX - borderPaddingX * 1;
+	float textW = ofGetWidth() * textWPrc;
 
 	//drawing the screenshot
 	ofSetColor(255, alpha);
-	screenshot.draw(screenShotX, startY, screenshotW, screenshotH);
+	screenshot.draw(screenShotX, screenShotY, screenshotW, screenshotH);
 
 	//outline
 	ofColor outlineCol;
@@ -30,13 +31,13 @@ void GameInfo::draw(float alpha, int titleColHex, int textColHex, int outlineCol
 	int outlineSize = 6;
 	ofSetColor(outlineCol);
 	//top
-	ofRect(screenShotX - outlineSize, startY - outlineSize, screenshotW + outlineSize * 2, outlineSize);
+	ofRect(screenShotX - outlineSize, screenShotY - outlineSize, screenshotW + outlineSize * 2, outlineSize);
 	//bottom
-	ofRect(screenShotX - outlineSize, startY + screenshotH, screenshotW + outlineSize * 2, outlineSize);
+	ofRect(screenShotX - outlineSize, screenShotY + screenshotH, screenshotW + outlineSize * 2, outlineSize);
 	//left
-	ofRect(screenShotX - outlineSize, startY, outlineSize, screenshotH);
+	ofRect(screenShotX - outlineSize, screenShotY, outlineSize, screenshotH);
 	//right
-	ofRect(screenShotX + screenshotW, startY, outlineSize, screenshotH);
+	ofRect(screenShotX + screenshotW, screenShotY, outlineSize, screenshotH);
 
 	
 	float textX = ofGetWidth() * textXPrc;
@@ -46,19 +47,24 @@ void GameInfo::draw(float alpha, int titleColHex, int textColHex, int outlineCol
 	titleCol.setHex(titleColHex);
 	titleCol.a = alpha;
 	ofSetColor(titleCol);
-	float titleY = startY + titleFont->lineHeight;
-	titleFont->draw(titleText, textX, titleY, textW);
+	float titleY = textStartY + titleFont->lineHeight;
+	float titleHeight = titleFont->draw(titleText, textX, titleY, textW);
+
+	//testing
+	//ofNoFill();
+	//ofSetColor(255, 0, 0);
+	//ofDrawRectangle(textX, titleY, textW, titleHeight);
 
 	//by line
-	float byY = titleY + titleFont->lineHeight + 60;
-	byLineFont->draw(byLineText, textX, byY, textW);
+	float byY = titleY + titleHeight + ofGetHeight() * textByLineYSpacingPrc;
+	float byLineHeight = byLineFont->draw(byLineText, textX, byY, textW);
 
 	//by info
 	ofColor infoCol;
 	infoCol.setHex(textColHex);
 	infoCol.a = alpha;
 	ofSetColor(infoCol);
-	float infoY = byY + byLineFont->lineHeight + 60;
+	float infoY = byY + byLineHeight + ofGetHeight() * textInfoYSpacingPrc;
 	infoFont->draw(infoText, textX, infoY, textW);
 
 

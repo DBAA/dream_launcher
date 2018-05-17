@@ -112,15 +112,21 @@ void ofApp::loadXML() {
 	iconXSpacing = xml.getValue<float>("ICON_X_SPACING");
 	iconSpacingCurve = xml.getValue<float>("ICON_SPACING_CURVE");
 
-	float gameInfoY = xml.getValue<float>("GAME_INFO_Y");
+	float gameInfoTextY = xml.getValue<float>("GAME_INFO_TEXT_Y_START");
 	float gameTextX = xml.getValue<float>("GAME_TEXT_X");
 	float gameTextW = xml.getValue<float>("GAME_TEXT_W");
+	float gameTextByLineSpacing = xml.getValue<float>("GAME_TEXT_BY_LINE_SPACING");
+	float gameTextInfoSpacing = xml.getValue<float>("GAME_TEXT_INFO_SPACING");
 	float screenshotX = xml.getValue<float>("SCREEN_SHOT_X");
+	float screenshotY = xml.getValue<float>("SCREEN_SHOT_Y");
 	for (int i = 0; i < info.size(); i++) {
-		info[i].infoYPrc = gameInfoY;
+		info[i].textStartYPrc = gameInfoTextY;
 		info[i].textXPrc = gameTextX;
 		info[i].textWPrc = gameTextW;
+		info[i].textByLineYSpacingPrc = gameTextByLineSpacing;
+		info[i].textInfoYSpacingPrc = gameTextInfoSpacing;
 		info[i].screenshotXPrc = screenshotX;
+		info[i].screenshotYPrc = screenshotY;
 	}
 
 	logoPos.x = xml.getValue<float>("LOGO_X");

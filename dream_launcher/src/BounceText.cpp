@@ -6,14 +6,15 @@ void BounceText::setup(string fontPath, int _fontSize) {
 
 	waveSpeed = 2;
 	waveStep = 0.4f;
-	waveSize = fontSize * 0.25;
+	waveSize = fontSize * 0.2;
 
 	charSpacing = 1 + fontSize * 0.1;
 	spaceWidth = font.stringWidth("o");
 	lineHeight = font.getLineHeight() * 1.25;
 }
 
-void BounceText::draw(string textToDraw, int _x, int _y, int textWidth) {
+//returns height of the text
+float BounceText::draw(string textToDraw, int _x, int _y, int textWidth) {
 	
 	//cout << "space " << spaceWidth << endl;
 
@@ -58,6 +59,8 @@ void BounceText::draw(string textToDraw, int _x, int _y, int textWidth) {
 		drawLine(thisLine, _x, _y + lineNum * lineHeight, 0);
 	}
 
+	//the text goes up form the given Y, so if it is only 1 line, it will extend 0 below that line
+	return (lineNum ) * lineHeight;
 
 }
 
