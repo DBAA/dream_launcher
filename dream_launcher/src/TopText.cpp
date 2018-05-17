@@ -2,7 +2,7 @@
 
 void TopText::setup(string _message) {
 	message = _message;
-	font.load("ChevyRay - Bubble Time.ttf", 60);
+	font.load("fonts/ChevyRay - Bubble Time.ttf", 60);
 }
 
 void TopText::draw(float centerX, float yPos) {

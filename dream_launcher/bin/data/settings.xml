@@ -3,15 +3,28 @@
 	<BOTTOM_MESSAGE>DreamboxXx Arcade Machine brought to you by Death By Audio Arcade * DeathByAudioArcade.com * @DBAArcade</BOTTOM_MESSAGE>
 	
 	<!-- Main Colors, hex values -->
-	<SELECT_HEX_COL>333</SELECT_HEX_COL>
-	<TITLE_HEX_COL>222</TITLE_HEX_COL>
-	<INFO_HEX_COL>333</INFO_HEX_COL>
-	<BOTTOM_MESSAGE_HEX_COL>444</BOTTOM_MESSAGE_HEX_COL>
-	<OUTLINE_HEX_COL>000</OUTLINE_HEX_COL>
+	<SELECT_HEX_COL>dddddd</SELECT_HEX_COL>
+	<TITLE_HEX_COL>eeeeee</TITLE_HEX_COL>
+	<INFO_HEX_COL>dddddd</INFO_HEX_COL>
+	<BOTTOM_MESSAGE_HEX_COL>cccccc</BOTTOM_MESSAGE_HEX_COL>
+	<OUTLINE_HEX_COL>dddddd</OUTLINE_HEX_COL>
+	
+	<!-- Fonts -->
+	<TITLE_FONT>GapSansBold.ttf</TITLE_FONT>
+	<TITLE_FONT_SIZE>52</TITLE_FONT_SIZE>
+	
+	<BY_LINE_FONT>GapSansBold.ttf</BY_LINE_FONT>
+	<BY_LINE_FONT_SIZE>34</BY_LINE_FONT_SIZE>
+	
+	<INFO_FONT>SaniTrixieSans.ttf</INFO_FONT>
+	<INFO_FONT_SIZE>28</INFO_FONT_SIZE>
+	
+	<BOTTOM_FONT>ChevyRay - Thicket Mono.ttf</BOTTOM_FONT>
+	<BOTTOM_FONT_SIZE>15</BOTTOM_FONT_SIZE>
 	
 	<!-- washing out/fading the background, 0-255 -->
-	<BG_GRAY>255</BG_GRAY>
-	<BG_ALPHA>100</BG_ALPHA>
+	<BG_GRAY>0</BG_GRAY>
+	<BG_ALPHA>140</BG_ALPHA>
 	
 	<!-- positions, 0-1 measured in screen % -->
 	

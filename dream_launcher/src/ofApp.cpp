@@ -12,12 +12,11 @@ void ofApp::setup(){
 	ofSetWindowTitle("dream_launcher");
 	//FreeConsole();	//hides the console
 
-	titleFont.setup("ChevyRay - Thicket Mono.ttf", 42);
-	byLineFont.setup("ChevyRay - Thicket Mono.ttf", 34);
-	infoFont.setup("ChevyRay - Thicket Mono.ttf", 28);
-	infoFont.waveSize = 3;
+	background.setup();
 
-	bottomInfoFont.load("ChevyRay - Thicket Mono.ttf", 15);
+	info.clear();
+	icons.clear();
+	loadXML();
 
 	selectionAnimationTime = 0.2f;
 	selectionAnimationTimer = 0;
@@ -26,11 +25,7 @@ void ofApp::setup(){
 	
 	curSelection = 0;
 
-	background.setup();
-
-	info.clear();
-	icons.clear();
-	loadXML();
+	
 
 	//icon basic settings
 	for (int i = 0; i < icons.size(); i++) {
@@ -102,6 +97,13 @@ void ofApp::loadXML() {
 	gameInfoColHex = ofHexToInt(xml.getValue<string>("INFO_HEX_COL"));
 	bottomTextColHex = ofHexToInt(xml.getValue<string>("BOTTOM_MESSAGE_HEX_COL"));
 	outlineColHex = ofHexToInt(xml.getValue<string>("OUTLINE_HEX_COL"));
+
+	titleFont.setup("fonts/"+xml.getValue<string>("TITLE_FONT"), xml.getValue<int>("TITLE_FONT_SIZE"));
+	byLineFont.setup("fonts/" + xml.getValue<string>("BY_LINE_FONT"), xml.getValue<int>("BY_LINE_FONT_SIZE"));
+	infoFont.setup("fonts/" + xml.getValue<string>("INFO_FONT"), xml.getValue<int>("INFO_FONT_SIZE"));
+	infoFont.waveSize = 3;
+
+	bottomInfoFont.load("fonts/" + xml.getValue<string>("BOTTOM_FONT"), xml.getValue<int>("BOTTOM_FONT_SIZE"));
 
 	selectGameY = xml.getValue<float>("SELECT_GAME_Y");
 
