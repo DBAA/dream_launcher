@@ -16,7 +16,7 @@ void GameIcon::update() {
 
 }
 
-void GameIcon::draw() {
+void GameIcon::draw(int outlineColHex) {
 	float testW = 400;
 	float testH = 200;
 
@@ -35,7 +35,10 @@ void GameIcon::draw() {
 
 	//outline
 	int outlineSize = 3;
-	ofSetColor(0, alpha);
+	ofColor outlineCol;
+	outlineCol.setHex(outlineColHex);
+	outlineCol.a = alpha;
+	ofSetColor(outlineCol);
 	//top
 	ofRect(-testW / 2 - outlineSize, -testH / 2 - outlineSize, testW + outlineSize * 2, outlineSize);
 	//bottom

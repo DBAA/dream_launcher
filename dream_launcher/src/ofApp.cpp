@@ -6,6 +6,9 @@ void ofApp::setup(){
 	ofBackground(255, 180, 180);
 	ofEnableAlphaBlending();
 
+	cout << "come on and slam" << endl;
+	cout << "and welcome to dreamjam" << endl;
+
 	ofSetWindowTitle("dream_launcher");
 	//FreeConsole();	//hides the console
 
@@ -40,10 +43,9 @@ void ofApp::setup(){
 		info[i].titleFont = &titleFont;
 		info[i].byLineFont = &byLineFont;
 		info[i].infoFont = &infoFont;
-		//info[i].testCol = icons[i].testCol;
 	}
 
-	dbaaLogo.load("dba_noText-01_small.png");
+	dbaaLogo.load("dba_noText-01_small_white.png");
 
 
 
@@ -93,7 +95,36 @@ void ofApp::loadXML() {
 	background.bgGray = xml.getValue<int>("BG_GRAY");
 	background.bgAlpha = xml.getValue<int>("BG_ALPHA");
 
-	cout << background.bgGray << "  " << background.bgAlpha << endl;
+	bottomMessageText = xml.getValue<string>("BOTTOM_MESSAGE");
+
+	selectTextColHex = ofHexToInt(xml.getValue<string>("SELECT_HEX_COL"));
+	gameTitleColHex = ofHexToInt(xml.getValue<string>("TITLE_HEX_COL"));
+	gameInfoColHex = ofHexToInt(xml.getValue<string>("INFO_HEX_COL"));
+	bottomTextColHex = ofHexToInt(xml.getValue<string>("BOTTOM_MESSAGE_HEX_COL"));
+	outlineColHex = ofHexToInt(xml.getValue<string>("OUTLINE_HEX_COL"));
+
+	selectGameY = xml.getValue<float>("SELECT_GAME_Y");
+
+	iconY = xml.getValue<float>("ICON_Y");
+	iconYSpacing = xml.getValue<float>("ICON_Y_SPACING");
+	iconXSpacing = xml.getValue<float>("ICON_X_SPACING");
+	iconSpacingCurve = xml.getValue<float>("ICON_SPACING_CURVE");
+
+	float gameInfoY = xml.getValue<float>("GAME_INFO_Y");
+	float gameTextX = xml.getValue<float>("GAME_TEXT_X");
+	float gameTextW = xml.getValue<float>("GAME_TEXT_W");
+	float screenshotX = xml.getValue<float>("SCREEN_SHOT_X");
+	for (int i = 0; i < info.size(); i++) {
+		info[i].infoYPrc = gameInfoY;
+		info[i].textXPrc = gameTextX;
+		info[i].textWPrc = gameTextW;
+		info[i].screenshotXPrc = screenshotX;
+	}
+
+	logoPos.x = xml.getValue<float>("LOGO_X");
+	logoPos.y = xml.getValue<float>("LOGO_Y");
+	bottomTextPos.x = xml.getValue<float>("BOTTOM_TEXT_X");
+	bottomTextPos.y = xml.getValue<float>("BOTTOM_TEXT_Y");
 
 }
 
@@ -116,38 +147,37 @@ void ofApp::draw(){
 	background.draw();
 	
 	//top text
-	ofSetColor(0);
-	topText.draw(ofGetWidth() / 2, ofGetHeight() * 0.05);
+	ofSetHexColor(selectTextColHex);
+	topText.draw(ofGetWidth() / 2, ofGetHeight() * selectGameY);
 
 	//icons
 	for (int i = 0; i < icons.size(); i++) {
-		icons[i].draw();
+		icons[i].draw(outlineColHex);
 	}
 
 	float selectionAnimPrc = selectionAnimationTimer / selectionAnimationTime;
 	selectionAnimPrc = MIN(selectionAnimPrc, 1);
 	//draw the info for this game, crossfading when the seleciton changes
-	info[curSelection].draw(255 * selectionAnimPrc);
+	info[curSelection].draw(255 * selectionAnimPrc, gameTitleColHex, gameInfoColHex, outlineColHex);
 	
 	if (selectionAnimPrc < 1.0) {
-		info[oldSelection].draw(255 * (1.0 - selectionAnimPrc));
+		info[oldSelection].draw(255 * (1.0 - selectionAnimPrc), gameTitleColHex, gameInfoColHex, outlineColHex);
 	}
 
 
 	//logo
+	ofSetHexColor(bottomTextColHex);
 	float logoScale = 0.35;
 	ofPushMatrix();
-	ofTranslate(ofGetWidth()*0.06, ofGetHeight() * 0.94);
-	ofSetColor(255);
+	ofTranslate(ofGetWidth() * logoPos.x, ofGetHeight() * logoPos.y);
 	ofScale(logoScale, logoScale);
 	ofRotate( ofMap( sin(ofGetElapsedTimef()), -1, 1, -10, -25) );
 	dbaaLogo.draw(-dbaaLogo.getWidth() / 2, -dbaaLogo.getHeight() / 2);
 	ofPopMatrix();
 
 	//info
-	string bottomInfoText = "DreamboxXx Arcade Machine brought to you by Death By Audio Arcade * DeathByAudioArcade.com * @DBAArcade";
-	ofSetColor(0);
-	bottomInfoFont.drawString(bottomInfoText, ofGetWidth() * 0.12, ofGetHeight() * 0.97);
+	ofSetHexColor(bottomTextColHex);
+	bottomInfoFont.drawString(bottomMessageText, ofGetWidth() * bottomTextPos.x, ofGetHeight() * bottomTextPos.y);
 }
 
 //--------------------------------------------------------------
@@ -200,11 +230,11 @@ int ofApp::getRelativeIconOrder(int iconID) {
 //0 is center
 ofVec2f ofApp::getIconPos(int slotNum) {
 	ofVec2f pos;
-	pos.y = ofGetHeight() * 0.23 - abs(slotNum) * ofGetHeight() * 0.01;
+	pos.y = ofGetHeight() * iconY - abs(slotNum) * ofGetHeight() * iconYSpacing;
 	
 	float distPrc = (float)slotNum / 3.0;
-	float curvePrc = powf(abs(distPrc), 0.85);
-	float spacing = ofGetWidth() * 0.55;
+	float curvePrc = powf(abs(distPrc), iconSpacingCurve);
+	float spacing = ofGetWidth() * iconXSpacing;
 	if (slotNum < 0)	spacing *= -1;
 	pos.x = ofGetWidth() / 2 + curvePrc * spacing;
 

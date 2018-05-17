@@ -7,7 +7,7 @@ class GameInfo {
 public:
 
 	void setup(string title, string byLine, string info, string path);
-	void draw(float alpha);
+	void draw(float alpha, int titleColHex, int textColHex, int outlineColHex);
 
 
 	string titleText;
@@ -21,5 +21,9 @@ public:
 	bool isWeb;
 
 	BounceText * titleFont, * byLineFont, * infoFont;
+
+	float infoYPrc;
+	float textXPrc, textWPrc;
+	float screenshotXPrc;
 
 };

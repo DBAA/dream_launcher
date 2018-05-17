@@ -6,7 +6,7 @@ class GameIcon {
 public:
 
 	void update();
-	void draw();
+	void draw(int outlineColHex);
 
 	void startAnimation(float time);
 

@@ -54,5 +54,23 @@ class ofApp : public ofBaseApp{
 		ofTrueTypeFont bottomInfoFont;
 
 		Background background;
+
+		//some settings from XML
+		string bottomMessageText;
+		int selectTextColHex;
+		int gameTitleColHex;
+		int gameInfoColHex;
+		int bottomTextColHex;
+		int outlineColHex;
+
+		float selectGameY;
+
+		float iconY;
+		float iconYSpacing;
+		float iconXSpacing;
+		float iconSpacingCurve;
+
+		ofVec2f logoPos;
+		ofVec2f bottomTextPos;
 		
 };
