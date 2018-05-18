@@ -21,11 +21,8 @@ void ofApp::setup(){
 	selectionAnimationTime = 0.2f;
 	selectionAnimationTimer = 0;
 
-	topText.setup("Select Game");
-	
 	curSelection = 0;
 
-	
 
 	//icon basic settings
 	for (int i = 0; i < icons.size(); i++) {
@@ -104,6 +101,9 @@ void ofApp::loadXML() {
 	infoFont.waveSize = 3;
 
 	bottomInfoFont.load("fonts/" + xml.getValue<string>("BOTTOM_FONT"), xml.getValue<int>("BOTTOM_FONT_SIZE"));
+
+
+	topText.setup(xml.getValue<string>("TOP_TEXT_MESSAGE"), "fonts/"+xml.getValue<string>("TOP_TEXT_FONT"), xml.getValue<int>("TOP_TEXT_FONT_SIZE") );
 
 	selectGameY = xml.getValue<float>("SELECT_GAME_Y");
 

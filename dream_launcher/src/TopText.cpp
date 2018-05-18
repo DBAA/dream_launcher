@@ -1,8 +1,10 @@
 #include "TopText.h"
 
-void TopText::setup(string _message) {
+void TopText::setup(string _message, string fontPath, int fontSize) {
 	message = _message;
-	font.load("fonts/ChevyRay - Bubble Time.ttf", 60);
+	font.load(fontPath, fontSize);
+	//font.load("fonts/ChevyRay - Bubble Time.ttf", 60);
+	//font.load("fonts/GapSansBold.ttf", 120);
 }
 
 void TopText::draw(float centerX, float yPos) {
@@ -18,7 +20,18 @@ void TopText::draw(float centerX, float yPos) {
 	float totalTime = timePerChar*message.length() + pauseTime;
 	float timer = fmod(ofGetElapsedTimef(), totalTime);
 
-	float textWidth = font.stringWidth(message) + charSpacing*(message.length()-1);
+	float textWidth = 0;// font.stringWidth(message) + charSpacing*(message.length() - 1);
+
+	for (int i = 0; i < message.length(); i++) {
+		string thisLetter;
+		thisLetter.push_back(message[i]);
+		textWidth += font.stringWidth(thisLetter) + charSpacing;
+		if (thisLetter == " ") {
+			textWidth += font.stringWidth("o");
+		}
+
+	}
+
 
 	float curX = 0;
 

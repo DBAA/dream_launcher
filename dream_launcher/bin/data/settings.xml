@@ -1,6 +1,7 @@
 <SETTINGS>
-	<!-- Message at the bottom -->
-	<BOTTOM_MESSAGE>DreamboxXx Arcade Machine brought to you by Death By Audio Arcade * DeathByAudioArcade.com * @DBAArcade</BOTTOM_MESSAGE>
+	<!-- Messages -->
+	<BOTTOM_MESSAGE>DreamboxXx Arcade Machine brought to you by Death By Audio Arcade  ~  DeathByAudioArcade.com  ~  @DBAArcade</BOTTOM_MESSAGE>
+	<TOP_TEXT_MESSAGE>Select Game</TOP_TEXT_MESSAGE>
 	
 	<!-- Main Colors, hex values -->
 	<SELECT_HEX_COL>dddddd</SELECT_HEX_COL>
@@ -10,6 +11,9 @@
 	<OUTLINE_HEX_COL>dddddd</OUTLINE_HEX_COL>
 	
 	<!-- Fonts -->
+	<TOP_TEXT_FONT>ChevyRay - Bubble Time.ttf</TOP_TEXT_FONT>
+	<TOP_TEXT_FONT_SIZE>45</TOP_TEXT_FONT_SIZE>
+	
 	<TITLE_FONT>GapSansBold.ttf</TITLE_FONT>
 	<TITLE_FONT_SIZE>56</TITLE_FONT_SIZE>
 	
@@ -26,9 +30,9 @@
 	<BG_GRAY>0</BG_GRAY>
 	<BG_ALPHA>140</BG_ALPHA>
 	
-	<!-- positions, 0-1 measured in screen % -->
 	
-	<SELECT_GAME_Y>0.05</SELECT_GAME_Y>
+	<!-- positions, 0-1 measured in screen % -->
+	<SELECT_GAME_Y>0.04</SELECT_GAME_Y>
 	
 	<ICON_Y>0.24</ICON_Y>
 	<ICON_Y_SPACING>0.05</ICON_Y_SPACING> <!--was 0.01-->
