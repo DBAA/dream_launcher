@@ -66,11 +66,11 @@
 		<SCREENSHOT>tunnel_pic.png</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>BUNT 2</TITLE>
-		<CREDITS>By Starbo 2</CREDITS>
-		<INFO>thrilling thrilling thrilling. A thrilling time.</INFO>
+		<TITLE>The Local Informant</TITLE>
+		<CREDITS>By Haitham Ennasr</CREDITS>
+		<INFO>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</INFO>
 		<EXE_PATH>bad path</EXE_PATH>
-		<ICON>bunt_icon.jpg</ICON>
-		<SCREENSHOT>bunt_screen.png</SCREENSHOT>
+		<ICON>Local-Informant-Icon.jpg</ICON>
+		<SCREENSHOT>Local-Informat-screenshot.jpg</SCREENSHOT>
 	</GAME>
 </GAMES>
