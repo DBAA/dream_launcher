@@ -1,76 +1,65 @@
 <GAMES>
 	<GAME>
-		<TITLE>Bleep Space</TITLE>
-		<CREDITS>By Andy Wallace</CREDITS>
-		<INFO>Bleep bleep bloop bloop</INFO>
-		<EXE_PATH>C:/Users/andy_/Documents/dbaa_launcher/bleep_space_win_1.55/BleepSpace.exe</EXE_PATH>
-		<ICON>bleep_icon.png</ICON>
-		<SCREENSHOT>bleep_pic.png</SCREENSHOT>
-	</GAME>
-	<GAME>
-		<TITLE>Super Textagon</TITLE>
-		<CREDITS>By Andy Wallace and Terry Cavanagh</CREDITS>
-		<INFO>It is a joke that you can play</INFO>
-		<EXE_PATH>C:/Users/andy_/Documents/dbaa_launcher/textagon/textagon.html</EXE_PATH>
+		<TITLE>Safe Space</TITLE>
+		<CREDITS>by Belladonna Gable</CREDITS>
+		<INFO>A game of cooperation and community in outer space</INFO>
+		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/safe_space/safe_space/index.html</EXE_PATH>
 		<IS_WEB>TRUE</IS_WEB>
-		<ICON>text_icon.jpg</ICON>
-		<SCREENSHOT>text_screenshot.jpg</SCREENSHOT>
+		<ICON>Logo_SafeSpace - Elana B.png</ICON>
+		<SCREENSHOT>Screenshot_SafeSpace - Elana B.png</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>Flim Flam Quest</TITLE>
-		<CREDITS>By Jummi</CREDITS>
-		<INFO>Is this quest for real... or it is a flim flam?</INFO>
-		<EXE_PATH>none</EXE_PATH>
-		<ICON>flim_flam_icon.png</ICON>
-		<SCREENSHOT>flim_flam_pic.jpg</SCREENSHOT>
+		<TITLE>queerspace?</TITLE>
+		<CREDITS>by Eddie Cameron with a little help from some friends</CREDITS>
+		<INFO>Welcome to the Forbidden Zone. Fuck something.</INFO>
+		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/queerspace_win/queerspace_win/queerspace_win.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>Untitled_Artwork 2 - Eddie Cameron.png</ICON>
+		<SCREENSHOT>Screen Shot 2018-05-22 at 23.31.49 - Eddie Cameron.png</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>Is this a nose?</TITLE>
-		<CREDITS>By Prinle + Chift</CREDITS>
-		<INFO>Do you think you know the answer. If you can detect if it is a nose then you will get to wear the nose crown all day.</INFO>
-		<EXE_PATH>none</EXE_PATH>
-		<ICON>nose_icon.png</ICON>
-		<SCREENSHOT>nose_shot.jpg</SCREENSHOT>
+		<TITLE>arpongi</TITLE>
+		<CREDITS>By Ayla Myers</CREDITS>
+		<INFO>A two player competitive game of pong, complete with experience points, gold, leveling up, units, buildings, upgrades, classes, and more!</INFO>
+		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/arpongi/arpongi.html</EXE_PATH>
+		<IS_WEB>TRUE</IS_WEB>
+		<ICON>arpongi-icon - Ayla Myers.png</ICON>
+		<SCREENSHOT>arpongi-screenshot - Ayla Myers.png</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>The Tunnel That Wouldn't Stop</TITLE>
-		<CREDITS>By krim, kram and zootle</CREDITS>
-		<INFO>Prepare to run infinitely, brother</INFO>
-		<EXE_PATH>none</EXE_PATH>
-		<ICON>tunnel_icon.png</ICON>
-		<SCREENSHOT>tunnel_pic.png</SCREENSHOT>
+		<TITLE>Conspiracy Theories About Myself</TITLE>
+		<CREDITS>By Juno Morrow with music by Visager</CREDITS>
+		<INFO>A game about self-acceptance and navigating social anxiety. Cooperative game for two players (or one talented multitasker).</INFO>
+		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/ConspiracyTheories_RC1/ConspiracyTheories_RC1/ConspiracyTheories_RC1.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>conspiracies - Juno McClure.jpg</ICON>
+		<SCREENSHOT>con_ - Juno McClure.jpg</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>BUNT</TITLE>
-		<CREDITS>By Starbo</CREDITS>
-		<INFO>thrilling thrilling thrilling. A thrilling time.</INFO>
-		<EXE_PATH>bad path</EXE_PATH>
-		<ICON>bunt_icon.jpg</ICON>
-		<SCREENSHOT>bunt_screen.png</SCREENSHOT>
-	</GAME>
-	
-	<GAME>
-		<TITLE>Is this a nose too?</TITLE>
-		<CREDITS>By Prinle + Chift</CREDITS>
-		<INFO>Do you think you know the answer. If you can detect if it is a nose then you will get to wear the nose crown all day.</INFO>
-		<EXE_PATH>none</EXE_PATH>
-		<ICON>nose_icon.png</ICON>
-		<SCREENSHOT>nose_shot.jpg</SCREENSHOT>
+		<TITLE>OrbTown</TITLE>
+		<CREDITS>By Juno Morrow and Visager</CREDITS>
+		<INFO>A frenzied 2-player game of transposed identities that rewards subterfuge. </INFO>
+		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/OrbTown_RC1/OrbTown_RC1/OrbTown_RC1.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>orbsmall - Juno McClure.jpg</ICON>
+		<SCREENSHOT>screenshot.11102 - Juno McClure.jpg</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>The Tunnel That Wouldn't Stop 2</TITLE>
-		<CREDITS>By krim, kram and zootle and krim and also kram</CREDITS>
-		<INFO>Prepare to run infinitely, brother</INFO>
-		<EXE_PATH>none</EXE_PATH>
-		<ICON>tunnel_icon.png</ICON>
-		<SCREENSHOT>tunnel_pic.png</SCREENSHOT>
+		<TITLE>a day at the beach</TITLE>
+		<CREDITS>nicole leffel, bailey steele</CREDITS>
+		<INFO>cute and relaxing, feat. background art by Bailey Steele</INFO>
+		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/leffel_may22/leffel_may22/index.html</EXE_PATH>
+		<IS_WEB>TRUE</IS_WEB>
+		<ICON>icon_sm - nicole leffel.png</ICON>
+		<SCREENSHOT>screenshot - nicole leffel.png</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>The Local Informant</TITLE>
-		<CREDITS>By Haitham Ennasr</CREDITS>
-		<INFO>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</INFO>
-		<EXE_PATH>bad path</EXE_PATH>
-		<ICON>Local-Informant-Icon.jpg</ICON>
-		<SCREENSHOT>Local-Informat-screenshot.jpg</SCREENSHOT>
+		<TITLE>Dream Hard</TITLE>
+		<CREDITS>game by Robert Yang, music by Renim</CREDITS>
+		<INFO>A queer brawler defense game. Defend the Dreamhouse from thinly-veiled white supremacists, and look great while doing it.</INFO>
+		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/dreamhard_windows_rc3/dreamhard_rc3.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>dreamhard_icon - Robert Yang.jpg</ICON>
+		<SCREENSHOT>dreamhard_screenshot - Robert Yang.jpg</SCREENSHOT>
 	</GAME>
 </GAMES>
