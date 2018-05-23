@@ -31,16 +31,18 @@ MButton::Restart_Launcher()
 SetTimer, MoveMouse, 300000
 
 ;testing
-q::
-   Restart_Launcher()
-Return
+q::Restart_Launcher()
 
-w::
-	KilLAllGames()
-return
+;k kills all games and returns focus to the launcer
+k::KilLAllGames()
+
+;R and F are used by the oF app and should not be used here
 
 ;temp kill command for testing
-Esc::ExitApp
+;Esc::ExitApp
+
+;Win-Z to kill this script
+#z::ExitApp
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; RESTART BUTTON
@@ -50,14 +52,11 @@ Restart_Launcher()
 {
 	;MsgBox restarting
 
-	;global Game_Window_Title
 	global Launcher_Path
-	;global Game_Send_Full_Screen
-	;global Game_Id
 	
 	Process,Close,%Game_Id%
 
-;	//Restart Program
+	;Restart Program
 	Run %Launcher_Path%,,Max,Game_Id
 	
 	Send {#h}
@@ -68,8 +67,13 @@ Restart_Launcher()
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 KillAllGames(){
-	KillWindow("BleepSpace.exe")
+	
 	KillWindow("chrome.exe")
+	KillWindow("firefox.exe")
+	KillWindow("ConspiracyTheories_RC1.exe")
+	KillWindow("dreamhard_rc3.exe")
+	KillWindow("OrbTown_RC1.exe")
+	KillWindow("queerspace_win.exe")
 	
 	;if the launcher was closed somehow, relaunch it
 	If !ProcessExist("dream_launcher_debug.exe")
@@ -122,7 +126,7 @@ MoveMouse(){
 
 #t::WinShow ahk_class Shell_TrayWnd
 
-#z::Exit
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; BABYCASTLES LIBRARY

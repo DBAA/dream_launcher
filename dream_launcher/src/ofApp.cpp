@@ -10,7 +10,6 @@ void ofApp::setup(){
 	cout << "and welcome to dreamjam" << endl;
 
 	ofSetWindowTitle("dream_launcher");
-	//FreeConsole();	//hides the console
 
 	background.setup();
 
@@ -134,6 +133,10 @@ void ofApp::loadXML() {
 	bottomTextPos.x = xml.getValue<float>("BOTTOM_TEXT_X");
 	bottomTextPos.y = xml.getValue<float>("BOTTOM_TEXT_Y");
 
+	if (xml.getValue<bool>("HIDE_CONSOLE")) {
+		FreeConsole();	//hides the console
+	}
+
 }
 
 
@@ -251,6 +254,8 @@ ofVec2f ofApp::getIconPos(int slotNum) {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
+	//cout << "ya pressed " << key << endl;
+	
 	//left and right
 	if (key == 'a' || key == 'A' || key == OF_KEY_LEFT) {
 		cycleSelection(curSelection, (curSelection + icons.size() - 1) % icons.size());
@@ -273,20 +278,12 @@ void ofApp::keyPressed(int key) {
 		}
 	}
 
-	//cout << "ya pressed " << key << endl;
-	if (key == '1') {
-		launchExe("C:/Users/andy_/Documents/dbaa_launcher/bleep_space_win_1.55/BleepSpace.exe");
-	}
-	if (key == '2') {
-		ofToggleFullscreen();
-		launchWeb("C:/Users/andy_/Documents/dbaa_launcher/textagon/textagon.html");
-	}
-
-	//testing. this should be RREgone
+	//testing. should this be removed?
 	if (key == 'f') {
 		ofToggleFullscreen();
 	}
 
+	//this command is used by the autohotkey script
 	if (key == 'R') {
 		cout << "better resize" << endl;
 		if (isFullScreened() == false) {
