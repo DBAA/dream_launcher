@@ -9,7 +9,7 @@ void ofApp::setup(){
 	cout << "come on and slam" << endl;
 	cout << "and welcome to dreamjam" << endl;
 
-	ofSetWindowTitle("dream_launcher");
+	ofSetWindowTitle("dream_launcher_app");
 
 	background.setup();
 

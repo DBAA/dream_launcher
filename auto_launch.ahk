@@ -7,7 +7,7 @@
 Launcher_Path = "D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/dream_launcher_debug.exe"
 
 ; General Interface Settings
-Start_With_Hidden_Cursor = 0
+Start_With_Hidden_Cursor = 1
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -16,7 +16,7 @@ Start_With_Hidden_Cursor = 0
 
 if (Start_With_Hidden_Cursor = 1)
 {
-	SystemCursor("Toggle")
+	SystemCursor(0)
 }
 ;SetTitleMatchMode, 2
 ;SendMode Input
@@ -24,26 +24,22 @@ if (Start_With_Hidden_Cursor = 1)
 ;kick this thing off
 Restart_Launcher()
 
-; middle mouse click restarts 
-MButton::Restart_Launcher()
-
 ;set the mouse to move every so often
 SetTimer, MoveMouse, 300000
 
-;testing
-q::Restart_Launcher()
-
 ;k kills all games and returns focus to the launcer
 k::KilLAllGames()
+; middle mouse click also restarts 
+MButton::KilLAllGames()
 
 ;R and F are used by the oF app and should not be used here
 
-;temp kill command for testing
-;Esc::ExitApp
-
 ;Win-Z to kill this script
-#z::ExitApp
-
+#z::
+	SystemCursor(1)	;give me my cursor back before quitting
+	ExitApp
+	return
+	
 ; Press Win-C to Toggle Cursor
 #c::SystemCursor("Toggle")
 
@@ -71,19 +67,45 @@ Restart_Launcher()
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 KillAllGames(){
-	GroupAdd, AllWindows
-	GroupClose, AllWindows, A
+	;old way of closing everything. This works but will sometimes create a prompt to shut down the computer
+	;also no way to to keep the launcher alive
+	;GroupAdd, AllWindows
+	;GroupClose, AllWindows, A
+	
+	;This loop runs through and closes everything other than system files
+	;https://autohotkey.com/board/topic/69677-close-all-windows-openminimized-browsers-but-not-pwr-off/
+	WinGet, id, list,,, Program Manager
+	Loop, %id%
+	{
+		this_id := id%A_Index% 
+		WinActivate, ahk_id %this_id%
+			WinGetClass, this_class, ahk_id %this_id%
+		WinGetTitle, this_title, ahk_id %this_id%
+		;MsgBox, %this_title%
+		If(This_class != "Shell_traywnd") && (This_class != "Button") && (this_title != "dream_launcher_app")   ; If class is not Shell_traywnd and not Button
+			WinClose, ahk_id %this_id% ;This is what it should be ;MsgBox, This ahk_id %this_id% ; Easier to test ;)
+	}
+	
+	;if the launcher was closed somehow, relaunch it
+	If !ProcessExist("dream_launcher_debug.exe")
+		Restart_Launcher()
+	
+	;Return focus to launcher and run the focus function (triggered by 'R')
+	WinActivate, dream_launcher
+	Sleep 20
+	Send {R 1}
 }
 
+;this is no longer used
 KillAllGamesOld(){
 
 	;WinGetTitle, Title, A
 	;MsgBox, %Title%
 	
 	KillWindow("chrome.exe")
-	;KillWindow("firefox.exe")
-	WinClose, "file:// - Mozilla Firefox"
-	WinClose, %Title%
+	KillWindow("firefox.exe")
+	;WinClose, "file:// - Mozilla Firefox"
+	;WinClose, %Title%
 	KillWindow("ConspiracyTheories_RC1.exe")
 	KillWindow("dreamhard_rc3.exe")
 	KillWindow("OrbTown_RC1.exe")
