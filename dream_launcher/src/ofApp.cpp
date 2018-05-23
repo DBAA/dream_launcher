@@ -20,8 +20,9 @@ void ofApp::setup(){
 	selectionAnimationTime = 0.2f;
 	selectionAnimationTimer = 0;
 
-	curSelection = 0;
+	curSelection = (int)ofRandom(icons.size());
 
+	canSelectGame = true;
 
 	//icon basic settings
 	for (int i = 0; i < icons.size(); i++) {
@@ -40,7 +41,7 @@ void ofApp::setup(){
 
 
 
-	cycleSelection(1, 1);
+	cycleSelection(curSelection, curSelection);
 
 }
 //--------------------------------------------------------------
@@ -268,13 +269,18 @@ void ofApp::keyPressed(int key) {
 
 	//all player buttons act as selecitons
 	if (key == 'C' || key == 'c' || key == 'V' || key == 'v' || key == 'N' || key == 'n' || key == 'M' || key == 'm') {
-		cout << "launch " << info[curSelection].titleText << endl;
-		if (info[curSelection].isWeb) {
-			ofToggleFullscreen();
-			launchWeb(info[curSelection].executablePath);
+		if (canSelectGame) {
+			cout << "launch " << info[curSelection].titleText << endl;
+			if (info[curSelection].isWeb) {
+				//ofToggleFullscreen();
+				launchWeb(info[curSelection].executablePath);
+			}
+			else {
+				launchExe(info[curSelection].executablePath);
+			}
 		}
 		else {
-			launchExe(info[curSelection].executablePath);
+			cout << "Can't select games right now" << endl;
 		}
 	}
 
@@ -283,12 +289,13 @@ void ofApp::keyPressed(int key) {
 		ofToggleFullscreen();
 	}
 
-	//this command is used by the autohotkey script
+	//this command is used by the autohotkey script and is called whenever the app is given focus
 	if (key == 'R') {
 		cout << "better resize" << endl;
 		if (isFullScreened() == false) {
 			ofToggleFullscreen();
 		}
+		canSelectGame = true;
 	}
 }
 
@@ -357,6 +364,7 @@ void ofApp::launchExe(string path) {
 	 
 	ShellExecute(NULL, commandLPC, pathLPC, NULL, NULL, SW_SHOWDEFAULT);
 	
+	canSelectGame = false;
 }
 
 
@@ -371,6 +379,7 @@ void ofApp::launchWeb(string url) {
 
 	ShellExecute(0, 0, pathLPC, 0, 0, SW_MAXIMIZE);
 
+	canSelectGame = false;
 }
 
 //--------------------------------------------------------------

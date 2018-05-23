@@ -44,6 +44,10 @@ k::KilLAllGames()
 ;Win-Z to kill this script
 #z::ExitApp
 
+; Press Win-C to Toggle Cursor
+#c::SystemCursor("Toggle")
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; RESTART BUTTON
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -67,9 +71,19 @@ Restart_Launcher()
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 KillAllGames(){
+	GroupAdd, AllWindows
+	GroupClose, AllWindows, A
+}
+
+KillAllGamesOld(){
+
+	;WinGetTitle, Title, A
+	;MsgBox, %Title%
 	
 	KillWindow("chrome.exe")
-	KillWindow("firefox.exe")
+	;KillWindow("firefox.exe")
+	WinClose, "file:// - Mozilla Firefox"
+	WinClose, %Title%
 	KillWindow("ConspiracyTheories_RC1.exe")
 	KillWindow("dreamhard_rc3.exe")
 	KillWindow("OrbTown_RC1.exe")
@@ -121,8 +135,7 @@ MoveMouse(){
 ; Press Win-A to Reload Autohotkey
 #a::Reload
 
-; Press Win-C to Toggle Cursor
-#c::SystemCursor("Toggle")
+
 
 #t::WinShow ahk_class Shell_TrayWnd
 

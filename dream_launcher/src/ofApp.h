@@ -72,5 +72,7 @@ class ofApp : public ofBaseApp{
 
 		ofVec2f logoPos;
 		ofVec2f bottomTextPos;
+
+		bool canSelectGame;
 		
 };
