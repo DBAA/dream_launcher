@@ -74,5 +74,7 @@ class ofApp : public ofBaseApp{
 		ofVec2f bottomTextPos;
 
 		bool canSelectGame;
+
+		ofSoundPlayer moveSound, selectSound, returnSound;
 		
 };

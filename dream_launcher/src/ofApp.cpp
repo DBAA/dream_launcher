@@ -89,12 +89,14 @@ void ofApp::loadXML() {
 
 	bottomMessageText = xml.getValue<string>("BOTTOM_MESSAGE");
 
+	//colors
 	selectTextColHex = ofHexToInt(xml.getValue<string>("SELECT_HEX_COL"));
 	gameTitleColHex = ofHexToInt(xml.getValue<string>("TITLE_HEX_COL"));
 	gameInfoColHex = ofHexToInt(xml.getValue<string>("INFO_HEX_COL"));
 	bottomTextColHex = ofHexToInt(xml.getValue<string>("BOTTOM_MESSAGE_HEX_COL"));
 	outlineColHex = ofHexToInt(xml.getValue<string>("OUTLINE_HEX_COL"));
 
+	//fonts
 	titleFont.setup("fonts/"+xml.getValue<string>("TITLE_FONT"), xml.getValue<int>("TITLE_FONT_SIZE"));
 	byLineFont.setup("fonts/" + xml.getValue<string>("BY_LINE_FONT"), xml.getValue<int>("BY_LINE_FONT_SIZE"));
 	infoFont.setup("fonts/" + xml.getValue<string>("INFO_FONT"), xml.getValue<int>("INFO_FONT_SIZE"));
@@ -102,9 +104,14 @@ void ofApp::loadXML() {
 
 	bottomInfoFont.load("fonts/" + xml.getValue<string>("BOTTOM_FONT"), xml.getValue<int>("BOTTOM_FONT_SIZE"));
 
-
 	topText.setup(xml.getValue<string>("TOP_TEXT_MESSAGE"), "fonts/"+xml.getValue<string>("TOP_TEXT_FONT"), xml.getValue<int>("TOP_TEXT_FONT_SIZE") );
 
+	//audio
+	moveSound.load("sounds/" + xml.getValue<string>("MOVE_SOUND"));
+	selectSound.load("sounds/" + xml.getValue<string>("SELECT_SOUND"));
+	returnSound.load("sounds/" + xml.getValue<string>("RETURN_SOUND"));
+
+	//placement
 	selectGameY = xml.getValue<float>("SELECT_GAME_Y");
 
 	iconY = xml.getValue<float>("ICON_Y");
@@ -261,16 +268,19 @@ void ofApp::keyPressed(int key) {
 	if (key == 'a' || key == 'A' || key == OF_KEY_LEFT) {
 		cycleSelection(curSelection, (curSelection + icons.size() - 1) % icons.size());
 		background.offsetInt--;
+		moveSound.play();
 	}
 	if (key == 'd' || key == 'D' || key == OF_KEY_RIGHT) {
 		cycleSelection(curSelection, (curSelection + 1) % icons.size());
 		background.offsetInt++;
+		moveSound.play();
 	}
 
 	//all player buttons act as selecitons
 	if (key == 'C' || key == 'c' || key == 'V' || key == 'v' || key == 'N' || key == 'n' || key == 'M' || key == 'm') {
 		if (canSelectGame) {
 			cout << "launch " << info[curSelection].titleText << endl;
+			selectSound.play();
 			if (info[curSelection].isWeb) {
 				//ofToggleFullscreen();
 				launchWeb(info[curSelection].executablePath);
@@ -292,6 +302,7 @@ void ofApp::keyPressed(int key) {
 	//this command is used by the autohotkey script and is called whenever the app is given focus
 	if (key == 'R') {
 		cout << "better resize" << endl;
+		returnSound.play();
 		if (isFullScreened() == false) {
 			ofToggleFullscreen();
 		}

@@ -34,6 +34,11 @@
 	<BG_GRAY>0</BG_GRAY>
 	<BG_ALPHA>140</BG_ALPHA>
 	
+	<!-- sound effects -->
+	<MOVE_SOUND>move1.wav</MOVE_SOUND>
+	<SELECT_SOUND>select3.wav</SELECT_SOUND>
+	<RETURN_SOUND>return1.wav</RETURN_SOUND>
+	
 	
 	<!-- positions, 0-1 measured in screen % -->
 	<SELECT_GAME_Y>0.04</SELECT_GAME_Y>
