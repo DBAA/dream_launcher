@@ -16,7 +16,11 @@ Loop,
 			;MsgBox, WinWait timed out.
 		}
 		else{
-		Sleep, 100
+			;Sleep, 100
+			;ControlSend, , {F11 1}, firefox.exe
+			;ControlSend , , {F11}, A
+			;MsgBox, slam it
+			WinActivate
 			Send {F11 1}
 			break
 		}
