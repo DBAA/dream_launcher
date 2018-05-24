@@ -141,7 +141,7 @@ void ofApp::loadXML() {
 	bottomTextPos.x = xml.getValue<float>("BOTTOM_TEXT_X");
 	bottomTextPos.y = xml.getValue<float>("BOTTOM_TEXT_Y");
 
-	if (xml.getValue<bool>("HIDE_CONSOLE")) {
+	if (xml.getValue<string>("HIDE_CONSOLE") == "TRUE") {
 		FreeConsole();	//hides the console
 	}
 
@@ -277,7 +277,7 @@ void ofApp::keyPressed(int key) {
 	}
 
 	//all player buttons act as selecitons
-	if (key == 'C' || key == 'c' || key == 'V' || key == 'v' || key == 'N' || key == 'n' || key == 'M' || key == 'm') {
+	if (key == 'C' || key == 'c' || key == 'V' || key == 'v' || key == 'N' || key == 'n' || key == 'M' || key == 'm' || key == ' ') {
 		if (canSelectGame) {
 			cout << "launch " << info[curSelection].titleText << endl;
 			selectSound.play();

@@ -4,10 +4,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Game Variables
-Launcher_Path = "C:/Users/BUBSTAR/Desktop/launcher/dream_launcher_debug.exe"
+Launcher_Path = "D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/dream_launcher_debug.exe"
 
 ; General Interface Settings
-Start_With_Hidden_Cursor = 0
+Start_With_Hidden_Cursor = 1
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -36,7 +36,6 @@ MButton::KilLAllGames()
 
 ;Win-Z to kill this script
 #z::
-	MsgBox, im out
 	SystemCursor(1)	;give me my cursor back before quitting
 	ExitApp
 	return
@@ -75,7 +74,6 @@ KillAllGames(){
 	
 	;This loop runs through and closes everything other than system files
 	;https://autohotkey.com/board/topic/69677-close-all-windows-openminimized-browsers-but-not-pwr-off/
-	;If the console is not turned off, this will also kill the launcher
 	WinGet, id, list,,, Program Manager
 	Loop, %id%
 	{
@@ -98,12 +96,48 @@ KillAllGames(){
 	Send {R 1}
 }
 
+;this is no longer used
+KillAllGamesOld(){
+
+	;WinGetTitle, Title, A
+	;MsgBox, %Title%
+	
+	KillWindow("chrome.exe")
+	KillWindow("firefox.exe")
+	;WinClose, "file:// - Mozilla Firefox"
+	;WinClose, %Title%
+	KillWindow("ConspiracyTheories_RC1.exe")
+	KillWindow("dreamhard_rc3.exe")
+	KillWindow("OrbTown_RC1.exe")
+	KillWindow("queerspace_win.exe")
+	
+	;if the launcher was closed somehow, relaunch it
+	If !ProcessExist("dream_launcher_debug.exe")
+		Restart_Launcher()
+	
+	;Return focus to launcher
+	WinActivate, dream_launcher
+	Sleep 20
+	Send {R 1}
+}
+
+KillWindow(exe_name)
+{
+	;MsgBox %windowName%
+	;WinClose, %windowName%
+	Process,Exist, %exe_name%
+	If ErrorLevel
+		Process,Close,%Errorlevel%
+}
+
 
 ;https://autohotkey.com/board/topic/98317-if-process-exist-command/
 ProcessExist(Name){
 	Process,Exist,%Name%
 	return Errorlevel
 }
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -116,11 +150,21 @@ MoveMouse(){
 	mousemove -5, -5, 10, R
 }
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; SYSTEM KEY MAPPINGS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Press Win-A to Reload Autohotkey
+#a::Reload
+
+
+
+#t::WinShow ahk_class Shell_TrayWnd
 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; BABYCASTLES CURSOR LIBRARY
+; BABYCASTLES LIBRARY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 SystemCursor(OnOff=1)   ; INIT = "I","Init"; OFF = 0,"Off"; TOGGLE = -1,"T","Toggle"; ON = others
@@ -157,3 +201,15 @@ SystemCursor(OnOff=1)   ; INIT = "I","Init"; OFF = 0,"Off"; TOGGLE = -1,"T","Tog
     }
 }
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;
+; CLEANUP
+;;;;;;;;;;;;;;;;;;;;;;
+
+OnExit, Cleanup
+return
+
+Cleanup:
+SystemCursor("On")
+ExitApp
