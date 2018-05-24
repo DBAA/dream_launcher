@@ -7,7 +7,7 @@
 Launcher_Path = "C:/Users/BUBSTAR/Desktop/launcher/dream_launcher_debug.exe"
 
 ; General Interface Settings
-Start_With_Hidden_Cursor = 0
+Start_With_Hidden_Cursor = 1
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -36,7 +36,6 @@ MButton::KilLAllGames()
 
 ;Win-Z to kill this script
 #z::
-	MsgBox, im out
 	SystemCursor(1)	;give me my cursor back before quitting
 	ExitApp
 	return

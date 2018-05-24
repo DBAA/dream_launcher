@@ -145,6 +145,9 @@ void ofApp::loadXML() {
 		FreeConsole();	//hides the console
 	}
 
+	closeAfterLaunchingGame = xml.getValue<string>("CLOSE_AFTER_GAME_LAUNCH") == "TRUE";
+	cout << "close after launch " << closeAfterLaunchingGame << endl;
+
 }
 
 
@@ -262,6 +265,20 @@ ofVec2f ofApp::getIconPos(int slotNum) {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
+	//this command is used by the autohotkey script and is called whenever the app is given focus
+	if (key == 'R') {
+		cout << "better resize" << endl;
+		returnSound.play();
+		if (isFullScreened() == false) {
+			ofToggleFullscreen();
+		}
+		canSelectGame = true;
+	}
+
+	//trying out just killing all input if the autohotkey script hasn't told us it's OK
+	if (!canSelectGame) {
+		return;
+	}
 	//cout << "ya pressed " << key << endl;
 	
 	//left and right
@@ -299,15 +316,7 @@ void ofApp::keyPressed(int key) {
 		ofToggleFullscreen();
 	}
 
-	//this command is used by the autohotkey script and is called whenever the app is given focus
-	if (key == 'R') {
-		cout << "better resize" << endl;
-		returnSound.play();
-		if (isFullScreened() == false) {
-			ofToggleFullscreen();
-		}
-		canSelectGame = true;
-	}
+	
 }
 
 //--------------------------------------------------------------
@@ -376,6 +385,10 @@ void ofApp::launchExe(string path) {
 	ShellExecute(NULL, commandLPC, pathLPC, NULL, NULL, SW_SHOWDEFAULT);
 	
 	canSelectGame = false;
+
+	if (closeAfterLaunchingGame) {
+		ofExit();
+	}
 }
 
 
@@ -391,6 +404,9 @@ void ofApp::launchWeb(string url) {
 	ShellExecute(0, 0, pathLPC, 0, 0, SW_MAXIMIZE);
 
 	canSelectGame = false;
+	if (closeAfterLaunchingGame) {
+		ofExit();
+	}
 }
 
 //--------------------------------------------------------------

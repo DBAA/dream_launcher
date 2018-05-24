@@ -76,5 +76,6 @@ class ofApp : public ofBaseApp{
 		bool canSelectGame;
 
 		ofSoundPlayer moveSound, selectSound, returnSound;
+		bool closeAfterLaunchingGame;
 		
 };
