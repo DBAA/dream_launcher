@@ -4,7 +4,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Game Variables
-Launcher_Path = "C:/Users/BUBSTAR/Desktop/launcher/dream_launcher_debug.exe"
+Launcher_Path = "C:/Users/BUBSTAR/Desktop/dream/launcher/dream_launcher_debug.exe"
 
 ; General Interface Settings
 Start_With_Hidden_Cursor = 1
