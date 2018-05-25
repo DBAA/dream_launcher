@@ -17,6 +17,8 @@ void ofApp::setup(){
 	icons.clear();
 	loadXML();
 
+	returnSound.play();
+
 	selectionAnimationTime = 0.2f;
 	selectionAnimationTimer = 0;
 

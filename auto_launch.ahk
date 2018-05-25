@@ -25,7 +25,7 @@ if (Start_With_Hidden_Cursor = 1)
 Restart_Launcher()
 
 ;set the mouse to move every so often
-SetTimer, MoveMouse, 300000
+SetTimer, MoveMouse, 8000
 
 ;k kills all games and returns focus to the launcer
 k::KilLAllGames()
@@ -110,9 +110,14 @@ ProcessExist(Name){
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 MoveMouse(){
+	;MsgBox, scrim scram
 	mousemove 5, 5, 10, R
-	sleep 1000
+	;sleep 1000
 	mousemove -5, -5, 10, R
+	
+	;click the mouse incase the current game does not have focus
+	CoordMode, Mouse, Screen
+	MouseClick, left, 960, 540
 }
 
 
