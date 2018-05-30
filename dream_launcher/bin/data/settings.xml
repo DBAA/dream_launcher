@@ -11,10 +11,6 @@
 	<OUTLINE_HEX_COL>dddddd</OUTLINE_HEX_COL>
 	
 	<!-- Fonts -->
-	<!--
-	<TOP_TEXT_FONT>ChevyRay - Bubble Time.ttf</TOP_TEXT_FONT>
-	<TOP_TEXT_FONT_SIZE>45</TOP_TEXT_FONT_SIZE>
-	-->
 	<TOP_TEXT_FONT>GapSansBold.ttf</TOP_TEXT_FONT>
 	<TOP_TEXT_FONT_SIZE>45</TOP_TEXT_FONT_SIZE>
 	

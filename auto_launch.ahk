@@ -4,7 +4,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Game Variables
-Launcher_Path = "C:/Users/BUBSTAR/Desktop/dream/launcher/dream_launcher_debug.exe"
+Launcher_Path = "C:/Users/BUBSTAR/Desktop/dream/launcher/dream_launcher.exe"
 
 ; General Interface Settings
 Start_With_Hidden_Cursor = 1
@@ -18,8 +18,6 @@ if (Start_With_Hidden_Cursor = 1)
 {
 	SystemCursor(0)
 }
-;SetTitleMatchMode, 2
-;SendMode Input
 
 ;kick this thing off
 Restart_Launcher()
@@ -67,14 +65,8 @@ Restart_Launcher()
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 KillAllGames(){
-	;old way of closing everything. This works but will sometimes create a prompt to shut down the computer
-	;also no way to to keep the launcher alive
-	;GroupAdd, AllWindows
-	;GroupClose, AllWindows, A
-	
 	;This loop runs through and closes everything other than system files
 	;https://autohotkey.com/board/topic/69677-close-all-windows-openminimized-browsers-but-not-pwr-off/
-	;If the console is not turned off, this will also kill the launcher
 	WinGet, id, list,,, Program Manager
 	Loop, %id%
 	{
@@ -83,15 +75,16 @@ KillAllGames(){
 			WinGetClass, this_class, ahk_id %this_id%
 		WinGetTitle, this_title, ahk_id %this_id%
 		;MsgBox, %this_title%
-		If(This_class != "Shell_traywnd") && (This_class != "Button") && (this_title != "dream_launcher_app")   ; If class is not Shell_traywnd and not Button
+		If(This_class != "Shell_traywnd") && (This_class != "Button")  ; If class is not Shell_traywnd and not Button
 			WinClose, ahk_id %this_id% ;This is what it should be ;MsgBox, This ahk_id %this_id% ; Easier to test ;)
 	}
 	
-	;if the launcher was closed somehow, relaunch it
-	If !ProcessExist("dream_launcher_debug.exe")
+	;restart the launcher
+	If !ProcessExist("dream_launcher.exe")
 		Restart_Launcher()
 	
 	;Return focus to launcher and run the focus function (triggered by 'R')
+	;This was more relevant when the launcher stayed open.
 	WinActivate, dream_launcher
 	Sleep 20
 	Send {R 1}
