@@ -30,4 +30,6 @@ public:
 	float screenshotXPrc;
 	float screenshotYPrc;
 
+	bool is_general_info;
+
 };
