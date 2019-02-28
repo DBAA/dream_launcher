@@ -173,14 +173,7 @@ void ofApp::draw(){
 	//background
 	background.draw();
 	
-	//top text
-	ofSetHexColor(selectTextColHex);
-	topText.draw(ofGetWidth() / 2, ofGetHeight() * selectGameY);
-
-	//icons
-	for (int i = 0; i < icons.size(); i++) {
-		icons[i].draw(outlineColHex);
-	}
+	
 
 	float selectionAnimPrc = selectionAnimationTimer / selectionAnimationTime;
 	selectionAnimPrc = MIN(selectionAnimPrc, 1);
@@ -191,6 +184,15 @@ void ofApp::draw(){
 		info[oldSelection].draw(255 * (1.0 - selectionAnimPrc), gameTitleColHex, gameInfoColHex, outlineColHex);
 	}
 
+
+	//top text
+	ofSetHexColor(selectTextColHex);
+	topText.draw(ofGetWidth() / 2, ofGetHeight() * selectGameY);
+
+	//icons
+	for (int i = 0; i < icons.size(); i++) {
+		icons[i].draw(outlineColHex);
+	}
 
 	//bottom stuff
 	ofColor bottomTextCol;
