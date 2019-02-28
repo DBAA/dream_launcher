@@ -61,6 +61,7 @@ class ofApp : public ofBaseApp{
 		int gameTitleColHex;
 		int gameInfoColHex;
 		int bottomTextColHex;
+		float bottomTextAlpha;
 		int outlineColHex;
 
 		float selectGameY;

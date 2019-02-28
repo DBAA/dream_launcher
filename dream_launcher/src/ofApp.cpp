@@ -128,7 +128,8 @@ void ofApp::loadXML() {
 	float gameTextInfoSpacing = xml.getValue<float>("GAME_TEXT_INFO_SPACING");
 	float screenshotX = xml.getValue<float>("SCREEN_SHOT_X");
 	float screenshotY = xml.getValue<float>("SCREEN_SHOT_Y");
-	bool use_text_for_general_info = xml.getValue<bool>("USE_IMAGE_FOR_DREAMHOUSE_INFO");
+	bool use_text_for_general_info = xml.getValue<string>("USE_IMAGE_FOR_DREAMHOUSE_INFO") == "TRUE";
+	cout << "ima do " << use_text_for_general_info << endl;
 	for (int i = 0; i < info.size(); i++) {
 		info[i].textStartYPrc = gameInfoTextY;
 		info[i].textXPrc = gameTextX;
@@ -191,8 +192,23 @@ void ofApp::draw(){
 	}
 
 
+	//bottom stuff
+	ofColor bottomTextCol;
+	bottomTextCol.setHex(bottomTextColHex);
+	float zeno = 0.1;
+	if (info[curSelection].is_general_info) {
+		bottomTextAlpha *= (1.0-zeno);
+	}
+	else {
+		bottomTextAlpha = (1.0-zeno) * bottomTextAlpha +  (zeno)*255.0;
+	}
+	if (info[curSelection].show_image_for_general_info == false) {
+		bottomTextAlpha = 255;
+	}
+	bottomTextCol.a = bottomTextAlpha;
+
 	//logo
-	ofSetHexColor(bottomTextColHex);
+	ofSetColor(bottomTextCol);
 	float logoScale = 0.35;
 	ofPushMatrix();
 	ofTranslate(ofGetWidth() * logoPos.x, ofGetHeight() * logoPos.y);
@@ -202,7 +218,7 @@ void ofApp::draw(){
 	ofPopMatrix();
 
 	//info
-	ofSetHexColor(bottomTextColHex);
+	//ofSetHexColor(bottomTextColHex);
 	bottomInfoFont.drawString(bottomMessageText, ofGetWidth() * bottomTextPos.x, ofGetHeight() * bottomTextPos.y);
 }
 

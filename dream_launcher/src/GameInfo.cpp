@@ -71,6 +71,8 @@ void GameInfo::draw(float alpha, int titleColHex, int textColHex, int outlineCol
 		//image only
 		if (show_image_for_general_info) {
 			ofSetColor(255, alpha);
+			screenshotH = ofGetHeight();
+			screenShotY = 0;
 			//screenshotH = screenshot.getHeight();
 			screenshotW = screenshotH * ((float)screenshot.getWidth() / (float)screenshot.getHeight());
 			screenShotX = ofGetWidth() / 2 - screenshotW / 2;
