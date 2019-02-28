@@ -8,6 +8,7 @@ void GameInfo::setup(string title, string byLine, string info, string path) {
 	isWeb = false;
 
 	is_general_info = title == "general_info";
+	show_image_for_general_info = true;
 }
 
 void GameInfo::draw(float alpha, int titleColHex, int textColHex, int outlineColHex) {
@@ -66,12 +67,25 @@ void GameInfo::draw(float alpha, int titleColHex, int textColHex, int outlineCol
 	}
 	//the special generla info page is just text
 	else {
-		ofColor infoCol;
-		infoCol.setHex(textColHex);
-		infoCol.a = alpha;
-		ofSetColor(infoCol);
-		float infoY = textStartY + titleFont->lineHeight;
-		infoFont->draw(infoText, screenShotX, infoY, ofGetWidth()-screenShotX*2);
+
+		//image only
+		if (show_image_for_general_info) {
+			ofSetColor(255, alpha);
+			//screenshotH = screenshot.getHeight();
+			screenshotW = screenshotH * ((float)screenshot.getWidth() / (float)screenshot.getHeight());
+			screenShotX = ofGetWidth() / 2 - screenshotW / 2;
+			//screenshotW = ofGetWidth() - screenShotX * 2;
+			screenshot.draw(screenShotX, screenShotY, screenshotW, screenshotH);
+		}
+		//text only
+		else {
+			ofColor infoCol;
+			infoCol.setHex(textColHex);
+			infoCol.a = alpha;
+			ofSetColor(infoCol);
+			float infoY = textStartY + titleFont->lineHeight;
+			infoFont->draw(infoText, screenShotX, infoY, ofGetWidth() - screenShotX * 2);
+		}
 	}
 	
 

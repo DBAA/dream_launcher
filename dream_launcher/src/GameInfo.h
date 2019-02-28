@@ -31,5 +31,6 @@ public:
 	float screenshotYPrc;
 
 	bool is_general_info;
+	bool show_image_for_general_info;
 
 };

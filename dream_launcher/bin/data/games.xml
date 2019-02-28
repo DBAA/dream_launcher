@@ -2,11 +2,11 @@
 	<GAME>
 		<TITLE>general_info</TITLE>
 		<CREDITS>None</CREDITS>
-		<INFO>The Dreambox was made as a site specific Arcade box for The Dreamhouse, Spectrum community.  All of the games were created as queer games by queer programmers.  The Spectrum started in 2011 as a LGBTQIA creative space/ dance studio and venue.  The second space The Dreamhouse was started in 2016 continuing to provide creative space as well as a venue for performance live music and nightlife. To find our more email TheSpectrum6@gmail.com</INFO>
+		<INFO>The DreamboxXx was made as a site specific arcade for The Dreamhouse/Spectrum community in collaboration with Death By Audio Arcade. All of the games were created as queer games by queer programmers from New York City. The Spectrum started in 2011 as an LGBTQIA creative space/ dance studio and venue. The second space, The Dreamhouse was started in 2016 continuing to provide creative space as well as a venue for performance, live music, and nightlife. To find our more email TheSpectrum6@gmail.com</INFO>
 		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/safe_space/safe_space/index.html</EXE_PATH>
 		<IS_WEB>TRUE</IS_WEB>
-		<ICON>Logo_SafeSpace - Elana B.png</ICON>
-		<SCREENSHOT>Screenshot_SafeSpace - Elana B.png</SCREENSHOT>
+		<ICON>general_info.jpg</ICON>
+		<SCREENSHOT>MENU_PAGE_DREAMBOXXX.jpg</SCREENSHOT>
 	</GAME>
 	<GAME>
 		<TITLE>Safe Space</TITLE>

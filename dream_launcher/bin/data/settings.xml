@@ -62,5 +62,6 @@
 	<!-- other shit -->
 	<HIDE_CONSOLE>FALSE</HIDE_CONSOLE>
 	<CLOSE_AFTER_GAME_LAUNCH>TRUE</CLOSE_AFTER_GAME_LAUNCH>
+	<USE_IMAGE_FOR_DREAMHOUSE_INFO>TRUE</USE_IMAGE_FOR_DREAMHOUSE_INFO>	<!--if FALSE, text will be used instead. The text or image are set in games.xml-->
 	
 </SETTINGS>
