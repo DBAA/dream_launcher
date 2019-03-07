@@ -318,14 +318,16 @@ void ofApp::keyPressed(int key) {
 	//all player buttons act as selecitons
 	if (key == 'C' || key == 'c' || key == 'V' || key == 'v' || key == 'N' || key == 'n' || key == 'M' || key == 'm' || key == ' ') {
 		if (canSelectGame) {
-			cout << "launch " << info[curSelection].titleText << endl;
-			selectSound.play();
-			if (info[curSelection].isWeb) {
-				//ofToggleFullscreen();
-				launchWeb(info[curSelection].executablePath);
-			}
-			else {
-				launchExe(info[curSelection].executablePath);
+			if (info[curSelection].is_general_info == false) {
+				cout << "launch " << info[curSelection].titleText << endl;
+				selectSound.play();
+				if (info[curSelection].isWeb) {
+					//ofToggleFullscreen();
+					launchWeb(info[curSelection].executablePath);
+				}
+				else {
+					launchExe(info[curSelection].executablePath);
+				}
 			}
 		}
 		else {
