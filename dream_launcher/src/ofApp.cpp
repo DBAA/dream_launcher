@@ -6,8 +6,12 @@ void ofApp::setup(){
 	ofBackground(255, 180, 180);
 	ofEnableAlphaBlending();
 
-	cout << "come on and slam" << endl;
-	cout << "and welcome to dreamjam" << endl;
+	cout << "LEVER UP!" << endl;
+
+	ofDirectory games_dir = ofDirectory("games");
+	games_folder_path = games_dir.getAbsolutePath();
+	//cout << games_folder_path << endl;
+
 
 	ofSetWindowTitle("dream_launcher_app");
 
@@ -89,6 +93,36 @@ void ofApp::loadXML() {
 	background.bgGray = xml.getValue<int>("BG_GRAY");
 	background.bgAlpha = xml.getValue<int>("BG_ALPHA");
 
+	xml.setTo("BG_COLORS");
+	xml.setTo("BG_COLOR[0]");
+	do {
+		string hex = xml.getValue<string>("VAL");
+		//cout << " bg color: " << hex << endl;
+
+		unsigned int r, g, b, a = 255; // Default alpha to 255
+		std::stringstream ss;
+		ss << std::hex;
+
+		// Parse red, green, blue
+		ss << hex.substr(1, 2); ss >> r; ss.clear();
+		ss << hex.substr(3, 2); ss >> g; ss.clear();
+		ss << hex.substr(5, 2); ss >> b;
+
+		// If alpha channel exists, parse it
+		if (hex.length() == 9) {
+			ss.clear();
+			ss << hex.substr(7, 2); ss >> a;
+		}
+
+		//cout << "  " << r << " , " << g << " , " << b << " , " << a << endl;
+
+		background.colors.push_back( ofColor(r, g, b, a) );
+
+		
+	} while (xml.setToSibling());
+	xml.setToParent();
+	xml.setToParent();
+
 	bottomMessageText = xml.getValue<string>("BOTTOM_MESSAGE");
 
 	//colors
@@ -149,6 +183,8 @@ void ofApp::loadXML() {
 	if (xml.getValue<string>("HIDE_CONSOLE") == "TRUE") {
 		FreeConsole();	//hides the console
 	}
+
+	use_relative_path = xml.getValue("USE_RELATIVE_PATH") == "TRUE";
 
 	closeAfterLaunchingGame = xml.getValue<string>("CLOSE_AFTER_GAME_LAUNCH") == "TRUE";
 	cout << "close after launch " << closeAfterLaunchingGame << endl;
@@ -394,10 +430,16 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 }
 
 //--------------------------------------------------------------
-void ofApp::launchExe(string path) {
+void ofApp::launchExe(string _path) {
 	if (isFullScreened()) {
 		ofToggleFullscreen();
 	}
+
+	string path = _path;
+	if (use_relative_path) {
+		path = games_folder_path + _path;
+	}
+	//cout << "launch:" << path << endl;
 
 	std::wstring pathTemp = std::wstring(path.begin(), path.end());
 	LPCWSTR pathLPC = pathTemp.c_str();

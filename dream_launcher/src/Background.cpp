@@ -13,11 +13,11 @@ void Background::setup(){
     barPic.load("bg_bar.png");
     
     //http://www.colourlovers.com/palette/1250813/Pastel_Rainbow
-    colors.push_back( ofColor(255,171,171));
+   /* colors.push_back( ofColor(255,171,171));
     colors.push_back( ofColor(255,218,171));
     colors.push_back( ofColor(221,255,171));
     colors.push_back( ofColor(171,228,255));
-    colors.push_back( ofColor(217,171,255));
+    colors.push_back( ofColor(217,171,255));*/
     
     offsetInt = 0;
     offsetY = 0;

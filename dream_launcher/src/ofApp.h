@@ -33,7 +33,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		void launchExe(string path);
+		void launchExe(string _path);
 		void launchWeb(string url);
 
 		bool isFullScreened();
@@ -78,5 +78,8 @@ class ofApp : public ofBaseApp{
 
 		ofSoundPlayer moveSound, selectSound, returnSound;
 		bool closeAfterLaunchingGame;
+
+		bool use_relative_path;
+		string games_folder_path;
 		
 };

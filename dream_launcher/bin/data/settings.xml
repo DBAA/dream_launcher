@@ -26,6 +26,14 @@
 	<BOTTOM_FONT>SaniTrixieSans.ttf</BOTTOM_FONT>
 	<BOTTOM_FONT_SIZE>22</BOTTOM_FONT_SIZE>
 	
+	<!-- background colors -->
+	<BG_COLORS>
+		<BG_COLOR><VAL>#0000FF</VAL></BG_COLOR>
+		<BG_COLOR><VAL>#FF00FF</VAL></BG_COLOR>
+		<BG_COLOR><VAL>#00FF00</VAL></BG_COLOR>
+		<BG_COLOR><VAL>#00FFAA</VAL></BG_COLOR>
+	</BG_COLORS>
+	
 	<!-- washing out/fading the background, 0-255 -->
 	<BG_GRAY>0</BG_GRAY>
 	<BG_ALPHA>140</BG_ALPHA>
@@ -60,6 +68,7 @@
 	<BOTTOM_TEXT_Y>0.97</BOTTOM_TEXT_Y>
 	
 	<!-- other shit -->
+	<USE_RELATIVE_PATH>TRUE</USE_RELATIVE_PATH>	<!--if FALSE, you need to provide an absolute path in the games xml -->
 	<HIDE_CONSOLE>FALSE</HIDE_CONSOLE>
 	<CLOSE_AFTER_GAME_LAUNCH>TRUE</CLOSE_AFTER_GAME_LAUNCH>
 	<USE_IMAGE_FOR_DREAMHOUSE_INFO>TRUE</USE_IMAGE_FOR_DREAMHOUSE_INFO>	<!--if FALSE, text will be used instead. The text or image are set in games.xml-->
