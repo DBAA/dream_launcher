@@ -13,3 +13,17 @@ Use dream_launcher.exe NOT dream_launcher_debug.exe
 If you move the EXE, bring all the .dll files with it. Your best bet is to just copy the whole bin folder.
 
 You need to edit dream_launcher/bin/data/games.xml to math the file locations of the games
+
+
+I hid the console with this:
+https://www.youtube.com/watch?v=o_BB5-Z65dc
+
+Probably need to undo it if you want the console.
+To turn it back on go to:
+Project->dream_launcher properties
+
+Then in the configuration window go to
+Linker->System and change the SubSystem value
+
+Windows (/SUBSYSTEM:WINDOWS)	=	no console
+Console (/SUBSYSTEM:CONSOLE)	= console
