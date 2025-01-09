@@ -163,6 +163,7 @@ void ofApp::loadXML() {
 	float gameTextW = xml.getValue<float>("GAME_TEXT_W");
 	float gameTextByLineSpacing = xml.getValue<float>("GAME_TEXT_BY_LINE_SPACING");
 	float gameTextInfoSpacing = xml.getValue<float>("GAME_TEXT_INFO_SPACING");
+	float screenshotW = xml.getValue<float>("SCREEN_SHOT_WIDTH");
 	float screenshotX = xml.getValue<float>("SCREEN_SHOT_X");
 	float screenshotY = xml.getValue<float>("SCREEN_SHOT_Y");
 	bool use_text_for_general_info = xml.getValue<string>("USE_IMAGE_FOR_DREAMHOUSE_INFO") == "TRUE";
@@ -173,6 +174,7 @@ void ofApp::loadXML() {
 		info[i].textWPrc = gameTextW;
 		info[i].textByLineYSpacingPrc = gameTextByLineSpacing;
 		info[i].textInfoYSpacingPrc = gameTextInfoSpacing;
+		info[i].screenshotW = screenshotW;
 		info[i].screenshotXPrc = screenshotX;
 		info[i].screenshotYPrc = screenshotY;
 		info[i].show_image_for_general_info = use_text_for_general_info;

@@ -27,6 +27,7 @@ public:
 	float textByLineYSpacingPrc;
 	float textInfoYSpacingPrc;
 	
+	float screenshotW;
 	float screenshotXPrc;
 	float screenshotYPrc;
 

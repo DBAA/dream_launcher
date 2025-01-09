@@ -18,20 +18,26 @@ void GameInfo::setup(string title, string byLine, string info, string path) {
 }
 
 void GameInfo::draw(float alpha, int titleColHex, int textColHex, int outlineColHex) {
-	float screenshotW = 720;
-	float screenshotH = 540;
+	//float screenshotW = 720;
+	//float screenshotH = 540;
 
 	//float borderPaddingX = 100;
 	float textStartY = ofGetHeight() * textStartYPrc;
 
-	float screenShotX = ofGetWidth() * screenshotXPrc;
-	float screenShotY = ofGetHeight() * screenshotYPrc;
+	
 
 	float textW = ofGetWidth() * textWPrc;
 	float textX = ofGetWidth() * textXPrc;
 
-	
+	//games
 	if (!is_general_info) {
+		float ratio = (float)screenshot.getHeight() / (float)screenshot.getWidth();
+		float screenshotH = screenshotW * ratio;
+
+		float screenShotX = ofGetWidth() * screenshotXPrc - screenshotW/2 ;
+		float screenShotY = ofGetHeight() * screenshotYPrc - screenshotH/2;
+
+
 		//drawing the screenshot
 		ofSetColor(255, alpha);
 		screenshot.draw(screenShotX, screenShotY, screenshotW, screenshotH);
@@ -77,23 +83,23 @@ void GameInfo::draw(float alpha, int titleColHex, int textColHex, int outlineCol
 		//image only
 		if (show_image_for_general_info) {
 			ofSetColor(255, alpha);
-			screenshotH = ofGetHeight();
-			screenShotY = 0;
+			float screenshotH = ofGetHeight();
+			float screenShotY = 0;
 			//screenshotH = screenshot.getHeight();
-			screenshotW = screenshotH * ((float)screenshot.getWidth() / (float)screenshot.getHeight());
-			screenShotX = ofGetWidth() / 2 - screenshotW / 2;
+			float screenshotW = screenshotH * ((float)screenshot.getWidth() / (float)screenshot.getHeight());
+			float screenShotX = ofGetWidth() / 2 - screenshotW / 2;
 			//screenshotW = ofGetWidth() - screenShotX * 2;
 			screenshot.draw(screenShotX, screenShotY, screenshotW, screenshotH);
 		}
 		//text only
-		else {
+		/*else {
 			ofColor infoCol;
 			infoCol.setHex(textColHex);
 			infoCol.a = alpha;
 			ofSetColor(infoCol);
 			float infoY = textStartY + titleFont->lineHeight;
 			infoFont->draw(infoText, screenShotX, infoY, ofGetWidth() - screenShotX * 2);
-		}
+		}*/
 	}
 	
 

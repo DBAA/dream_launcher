@@ -35,13 +35,4 @@
 		<ICON>trashbot.png</ICON>
 		<SCREENSHOT>pgB6Cd.png</SCREENSHOT>
 	</GAME>
-	<GAME>
-		<TITLE>Dream Hard</TITLE>
-		<CREDITS>game by Robert Yang, music by Renim</CREDITS>
-		<INFO>A queer brawler defense game. Defend the Dreamhouse from thinly-veiled white supremacists, and look great while doing it.</INFO>
-		<EXE_PATH>/dreamhard_windows_rc3/dreamhard_rc3.exe</EXE_PATH>
-		<IS_WEB>FALSE</IS_WEB>
-		<ICON>dreamhard_icon - Robert Yang.jpg</ICON>
-		<SCREENSHOT>dreamhard_screenshot - Robert Yang.jpg</SCREENSHOT>
-	</GAME>
 </GAMES>
