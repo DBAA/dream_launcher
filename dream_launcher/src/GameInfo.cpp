@@ -4,6 +4,12 @@ void GameInfo::setup(string title, string byLine, string info, string path) {
 	titleText = title;
 	byLineText = byLine;
 	infoText = info;
+
+	//this does not work
+	/*for (int i = 0; i < infoText.size(); i++) {
+		if (infoText[i] == '#')	infoText[i] = '\n';
+	}*/
+
 	executablePath = path;
 	isWeb = false;
 

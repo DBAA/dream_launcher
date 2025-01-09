@@ -9,58 +9,31 @@
 		<SCREENSHOT>main menu dreamboxxx 1080.jpg</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>Safe Space</TITLE>
-		<CREDITS>by Belladonna Gable</CREDITS>
-		<INFO>A game of cooperation and community in outer space</INFO>
-		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/safe_space/safe_space/index.html</EXE_PATH>
-		<IS_WEB>TRUE</IS_WEB>
-		<ICON>Logo_SafeSpace - Elana B.png</ICON>
-		<SCREENSHOT>Screenshot_SafeSpace - Elana B.png</SCREENSHOT>
-	</GAME>
-	<GAME>
-		<TITLE>queerspace?</TITLE>
-		<CREDITS>by Eddie Cameron with a little help from some friends</CREDITS>
-		<INFO>Welcome to the Forbidden Zone. Fuck something.</INFO>
-		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/queerspace_win/queerspace_win/queerspace_win.exe</EXE_PATH>
+		<TITLE>Amphibifans</TITLE>
+		<CREDITS>by Dexter Gramfors</CREDITS>
+		<INFO>FROGS DOING THE WAVE. that's it that's the game. Programming: Dexter Gramfors. Knitting and hardware: Wesna</INFO>
+		<EXE_PATH>/amphibifans.exe</EXE_PATH>
 		<IS_WEB>FALSE</IS_WEB>
-		<ICON>Untitled_Artwork 2 - Eddie Cameron.png</ICON>
-		<SCREENSHOT>Screen Shot 2018-05-22 at 23.31.49 - Eddie Cameron.png</SCREENSHOT>
+		<ICON>amphibifans.png</ICON>
+		<SCREENSHOT>amphibifans_pic.png</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>arpongi</TITLE>
-		<CREDITS>By Ayla Myers</CREDITS>
-		<INFO>A two player competitive game of pong, complete with experience points, gold, leveling up, units, buildings, upgrades, classes, and more!</INFO>
-		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/arpongi/arpongi.html</EXE_PATH>
-		<IS_WEB>TRUE</IS_WEB>
-		<ICON>arpongi-icon - Ayla Myers.png</ICON>
-		<SCREENSHOT>arpongi-screenshot - Ayla Myers.png</SCREENSHOT>
-	</GAME>
-	<GAME>
-		<TITLE>Conspiracy Theories About Myself</TITLE>
-		<CREDITS>By Juno Morrow with music by Visager</CREDITS>
-		<INFO>A game about self-acceptance and navigating social anxiety. Cooperative game for two players (or one talented multitasker).</INFO>
-		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/ConspiracyTheories_RC1/ConspiracyTheories_RC1/ConspiracyTheories_RC1.exe</EXE_PATH>
+		<TITLE>SPECIAL DE.LEVER.Y</TITLE>
+		<CREDITS>by josephalopod</CREDITS>
+		<INFO>Deliver as many packages as you can to their destinations within the time limit. Use the levers to control engine power. Packages will automatically attach to the bottom of your drone, and can be released using the button. The button can also be used to flip your drone if you find yourself stuck upside-down.</INFO>
+		<EXE_PATH>/special_de_lever_y.exe</EXE_PATH>
 		<IS_WEB>FALSE</IS_WEB>
-		<ICON>conspiracies - Juno McClure.jpg</ICON>
-		<SCREENSHOT>con_ - Juno McClure.jpg</SCREENSHOT>
+		<ICON>special_delevery.png</ICON>
+		<SCREENSHOT>91AU7B.png</SCREENSHOT>
 	</GAME>
 	<GAME>
-		<TITLE>OrbTown</TITLE>
-		<CREDITS>By Juno Morrow and Visager</CREDITS>
-		<INFO>A frenzied 2-player game of transposed identities that rewards subterfuge. </INFO>
-		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/OrbTown_RC1/OrbTown_RC1/OrbTown_RC1.exe</EXE_PATH>
+		<TITLE>Trashbot</TITLE>
+		<CREDITS>by josephalopod</CREDITS>
+		<INFO>You're trashbot. You bus tables. You're overworked and never get a break. Make score go up to satisfy your fitness function.</INFO>
+		<EXE_PATH>/special_de_lever_y.exe</EXE_PATH>
 		<IS_WEB>FALSE</IS_WEB>
-		<ICON>orbsmall - Juno McClure.jpg</ICON>
-		<SCREENSHOT>screenshot.11102 - Juno McClure.jpg</SCREENSHOT>
-	</GAME>
-	<GAME>
-		<TITLE>a day at the beach</TITLE>
-		<CREDITS>nicole leffel, bailey steele</CREDITS>
-		<INFO>cute and relaxing, feat. background art by Bailey Steele</INFO>
-		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/leffel_may22/leffel_may22/index.html</EXE_PATH>
-		<IS_WEB>TRUE</IS_WEB>
-		<ICON>icon_sm - nicole leffel.png</ICON>
-		<SCREENSHOT>screenshot - nicole leffel.png</SCREENSHOT>
+		<ICON>trashbot.png</ICON>
+		<SCREENSHOT>pgB6Cd.png</SCREENSHOT>
 	</GAME>
 	<GAME>
 		<TITLE>Dream Hard</TITLE>
@@ -70,14 +43,5 @@
 		<IS_WEB>FALSE</IS_WEB>
 		<ICON>dreamhard_icon - Robert Yang.jpg</ICON>
 		<SCREENSHOT>dreamhard_screenshot - Robert Yang.jpg</SCREENSHOT>
-	</GAME>
-	<GAME>
-		<TITLE>RAUNCHY FEAST XXX</TITLE>
-		<CREDITS>an adventure for two by Fernando Ramallo</CREDITS>
-		<INFO>everyone here is so delicious / everyone smells so good / binge on their sweaty bodies / indulge on their filthy essence / keep walking around / there's more to feast on</INFO>
-		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/RaunchyXXX/RaunchyXXXXX.exe</EXE_PATH>
-		<IS_WEB>FALSE</IS_WEB>
-		<ICON>icon - Fernando Ramallo.png</ICON>
-		<SCREENSHOT>screenshot - Fernando Ramallo.png</SCREENSHOT>
 	</GAME>
 </GAMES>

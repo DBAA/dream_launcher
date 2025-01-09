@@ -17,8 +17,8 @@ void GameIcon::update() {
 }
 
 void GameIcon::draw(int outlineColHex) {
-	float testW = 400;
-	float testH = 200;
+	float testW = 315;
+	float testH = 250;
 
 	//calculate alpha and scale based on position
 	float distFromCenter = abs(ofGetWidth() / 2 - pos.x);

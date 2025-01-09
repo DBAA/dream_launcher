@@ -43,7 +43,7 @@ void ofApp::setup(){
 		info[i].infoFont = &infoFont;
 	}
 
-	dbaaLogo.load("dba_noText-01_small_white.png");
+	//logo.load("dba_noText-01_small_white.png");
 
 
 
@@ -124,6 +124,9 @@ void ofApp::loadXML() {
 	xml.setToParent();
 
 	bottomMessageText = xml.getValue<string>("BOTTOM_MESSAGE");
+
+	string logo_path = "images/" + xml.getValue<string>("LOGO_IMG");
+	logo.load(logo_path);
 
 	//colors
 	selectTextColHex = ofHexToInt(xml.getValue<string>("SELECT_HEX_COL"));
@@ -252,7 +255,7 @@ void ofApp::draw(){
 	ofTranslate(ofGetWidth() * logoPos.x, ofGetHeight() * logoPos.y);
 	ofScale(logoScale, logoScale);
 	ofRotate( ofMap( sin(ofGetElapsedTimef()), -1, 1, -10, -25) );
-	dbaaLogo.draw(-dbaaLogo.getWidth() / 2, -dbaaLogo.getHeight() / 2);
+	logo.draw(-logo.getWidth() / 2, -logo.getHeight() / 2);
 	ofPopMatrix();
 
 	//info

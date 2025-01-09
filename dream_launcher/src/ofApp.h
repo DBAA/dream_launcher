@@ -50,7 +50,7 @@ class ofApp : public ofBaseApp{
 
 		TopText topText;
 
-		ofImage dbaaLogo;
+		ofImage logo;
 		ofTrueTypeFont bottomInfoFont;
 
 		Background background;
