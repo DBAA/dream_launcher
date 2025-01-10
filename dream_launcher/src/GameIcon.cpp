@@ -17,8 +17,8 @@ void GameIcon::update() {
 }
 
 void GameIcon::draw(int outlineColHex) {
-	float testW = 315;
-	float testH = 250;
+	//float icon_w = 315;
+	//float icon_h = 250;
 
 	//calculate alpha and scale based on position
 	float distFromCenter = abs(ofGetWidth() / 2 - pos.x);
@@ -31,7 +31,7 @@ void GameIcon::draw(int outlineColHex) {
 	ofTranslate(pos.x, pos.y);
 	ofScale(scale, scale);
 	ofSetColor(255, alpha);
-	iconPic.draw(-testW / 2, -testH / 2, testW, testH);
+	iconPic.draw(-icon_w / 2, -icon_h / 2, icon_w, icon_h);
 
 	//outline
 	int outlineSize = 3;
@@ -40,13 +40,13 @@ void GameIcon::draw(int outlineColHex) {
 	outlineCol.a = alpha;
 	ofSetColor(outlineCol);
 	//top
-	ofRect(-testW / 2 - outlineSize, -testH / 2 - outlineSize, testW + outlineSize * 2, outlineSize);
+	ofRect(-icon_w / 2 - outlineSize, -icon_h / 2 - outlineSize, icon_w + outlineSize * 2, outlineSize);
 	//bottom
-	ofRect(-testW / 2 - outlineSize, testH / 2 , testW + outlineSize * 2, outlineSize);
+	ofRect(-icon_w / 2 - outlineSize, icon_h / 2 , icon_w + outlineSize * 2, outlineSize);
 	//left
-	ofRect(-testW / 2 - outlineSize, -testH/2 , outlineSize, testH);
+	ofRect(-icon_w / 2 - outlineSize, -icon_h/2 , outlineSize, icon_h);
 	//right
-	ofRect(testW / 2 , -testH / 2, outlineSize, testH);
+	ofRect(icon_w / 2 , -icon_h / 2, outlineSize, icon_h);
 
 
 	ofPopMatrix();

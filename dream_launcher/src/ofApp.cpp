@@ -180,6 +180,13 @@ void ofApp::loadXML() {
 		info[i].show_image_for_general_info = use_text_for_general_info;
 	}
 
+	float icon_w = xml.getValue<float>("ICON_WIDTH");
+	float icon_h = xml.getValue<float>("ICON_HEIGHT");
+	for (int i = 0; i < icons.size(); i++) {
+		icons[i].icon_w = icon_w;
+		icons[i].icon_h = icon_h;
+	}
+
 	logoPos.x = xml.getValue<float>("LOGO_X");
 	logoPos.y = xml.getValue<float>("LOGO_Y");
 	bottomTextPos.x = xml.getValue<float>("BOTTOM_TEXT_X");
