@@ -1,10 +1,21 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; MULTI-CAB LAUNCHER
+; by Andy Wallace
+; 
+; When you run this, it will close EVERYTHING when you press K
+; so save your work lol
+;
+; Win-Z will kill this script
+;
+; don't forget to set the launcher path
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; SETUP
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Game Variables
-Launcher_Path = "C:/Users/BUBSTAR/Desktop/dream/launcher/dream_launcher.exe"
+Launcher_Path = "D:\of_v0.9.8_vs_release\apps\lever_up_launcher\dream_launcher\bin\dream_launcher.exe"
 
 ; General Interface Settings
 Start_With_Hidden_Cursor = 1

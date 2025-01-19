@@ -2,37 +2,131 @@
 	<GAME>
 		<TITLE>general_info</TITLE>
 		<CREDITS>None</CREDITS>
-		<INFO>The DreamboxXx was made as a site specific arcade for The Dreamhouse/Spectrum community in collaboration with Death By Audio Arcade. All of the games were created as queer games by queer programmers from New York City. The Spectrum started in 2011 as an LGBTQIA creative space/ dance studio and venue. The second space, The Dreamhouse was started in 2016 continuing to provide creative space as well as a venue for performance, live music, and nightlife. To find our more email TheSpectrum6@gmail.com</INFO>
-		<EXE_PATH>D:/of_v0.9.8_vs_release/apps/dream_launcher/dream_launcher/bin/data/games/safe_space/safe_space/index.html</EXE_PATH>
-		<IS_WEB>TRUE</IS_WEB>
+		<INFO>It's a game jam.</INFO>
+		<EXE_PATH></EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
 		<ICON>main menu dreamboxxx 400px.jpg</ICON>
 		<SCREENSHOT>main menu dreamboxxx 1080.jpg</SCREENSHOT>
 	</GAME>
 	<GAME>
 		<TITLE>Amphibifans</TITLE>
-		<CREDITS>by Dexter Gramfors</CREDITS>
-		<INFO>FROGS DOING THE WAVE. that's it that's the game. Programming: Dexter Gramfors. Knitting and hardware: Wesna</INFO>
+		<CREDITS>by Dexter Gramfors and Wesna</CREDITS>
+		<INFO>FROGS DOING THE WAVE.
+that's it that's the game.</INFO>
 		<EXE_PATH>/amphibifans.exe</EXE_PATH>
 		<IS_WEB>FALSE</IS_WEB>
-		<ICON>amphibifans.png</ICON>
-		<SCREENSHOT>amphibifans_pic.png</SCREENSHOT>
+		<ICON>Amphibifans.png</ICON>
+		<SCREENSHOT>Amphibifans_gameplay2.png</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>Card Shark</TITLE>
+		<CREDITS>by smurray117</CREDITS>
+		<INFO>You're a shark playing Black Jack. Don't forget to drink water or you'll die of thirst! Use the Left Lever to choose Hit, Double Down, or Stand. Use the Right Lever to take a drink.
+Card Images by ElvGames
+Includes Sounds by pan14</INFO>
+		<EXE_PATH>/CardShark.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>cardshark.png</ICON>
+		<SCREENSHOT>cardshark_gameplay.png</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>leveRAGE </TITLE>
+		<CREDITS>by dandylion.dev and matolson</CREDITS>
+		<INFO>press "the button" or spacebar to start your game
+you have 3 minutes to shoot down as many enemy targets as you can! your mech is invincible, but slow to move and turn. enemy projectiles will disrupt your mech's movement!</INFO>
+		<EXE_PATH>/leverage/robots-lever-up.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>leverage.png</ICON>
+		<SCREENSHOT>leverage_gameplay2.png</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>Sing Circuit</TITLE>
+		<CREDITS>by running jump</CREDITS>
+		<INFO>sing your engines to steer. harmonize and press button to shift into higher gear. get as far as you can with as many harmonies as you can
+game by walt mitchell aka running jump: runningjump.games
+face models by ramsey haefner, nature models by kenney
+</INFO>
+		<EXE_PATH>/sing_circuit_v0.2/Sing Circuit.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>singcircuit.png</ICON>
+		<SCREENSHOT>singcircuit_gameplay.png</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>Slidebar </TITLE>
+		<CREDITS>by  LieutenantJaku and killerjules</CREDITS>
+		<INFO>Live your bar tending dreams in Slide Bar. Use the sliders to select and pour your drinks. How well do you know your drink recipes?
+-Left Slider Selects Drinks
+-Right Slider Pours
+-Button is for soda/cola tap
+Check the manual binder for recipes!
+</INFO>
+		<EXE_PATH>/SlideBar 1.0.1/SlideBar.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>slidebar.png</ICON>
+		<SCREENSHOT>slidebar_gameplay.png</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>le Canon de Fashion</TITLE>
+		<CREDITS>by Travis Faas</CREDITS>
+		<INFO>You are fashion bear. You get clothes. You wear clothes. Life does not pass you by.
+Some clothes are more sexy (dress), others are more casual (pants). A few, more retro (glasses).
+Hands up grabs clothes, hands down pushes cart. One hand on the cart makes it turn. Two hands makes it go forward.
+</INFO>
+		<EXE_PATH>/LCDF/Alt Control Jam 24.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>lecanondefashion.png</ICON>
+		<SCREENSHOT>lecanondefashion_gameplay.png</SCREENSHOT>
 	</GAME>
 	<GAME>
 		<TITLE>SPECIAL DE.LEVER.Y</TITLE>
 		<CREDITS>by josephalopod</CREDITS>
 		<INFO>Deliver as many packages as you can to their destinations within the time limit. Use the levers to control engine power. Packages will automatically attach to the bottom of your drone, and can be released using the button. The button can also be used to flip your drone if you find yourself stuck upside-down.</INFO>
-		<EXE_PATH>/special_de_lever_y.exe</EXE_PATH>
+		<EXE_PATH>/special_de_lever_y_(lever_mode).exe</EXE_PATH>
 		<IS_WEB>FALSE</IS_WEB>
-		<ICON>special_delevery.png</ICON>
-		<SCREENSHOT>91AU7B.png</SCREENSHOT>
+		<ICON>specialdelevery.png</ICON>
+		<SCREENSHOT>specialdelevery_gameplay.png</SCREENSHOT>
 	</GAME>
 	<GAME>
 		<TITLE>Trashbot</TITLE>
-		<CREDITS>by josephalopod</CREDITS>
-		<INFO>You're trashbot. You bus tables. You're overworked and never get a break. Make score go up to satisfy your fitness function.</INFO>
-		<EXE_PATH>/special_de_lever_y.exe</EXE_PATH>
+		<CREDITS>by Jay Zuerndorfer (jzplusplus)</CREDITS>
+		<INFO>You're trashbot. You clean up trash. You're overworked and never get a break. Make score go up to satisfy your fitness function. Put the dishes into the buckets.
+Press button to start game. Also shoots cheese.
+Left lever to move left hand
+Right lever to move right hand
+</INFO>
+		<EXE_PATH>/trashbot.exe</EXE_PATH>
 		<IS_WEB>FALSE</IS_WEB>
 		<ICON>trashbot.png</ICON>
-		<SCREENSHOT>pgB6Cd.png</SCREENSHOT>
+		<SCREENSHOT>Trashbot_gameplay2.png</SCREENSHOT>
 	</GAME>
+	<GAME>
+		<TITLE>CLOMBER</TITLE>
+		<CREDITS>by wakeman</CREDITS>
+		<INFO>Climb!
+Each slider controls one paw.
+Slide up to raise your paw (and release its grip).
+Slide down to grab ledges and pull yourself up.
+
+See how fast you can get to the top, or how far you can get in 5:00.
+</INFO>
+		<EXE_PATH>/CLOMBER-2024-12-25.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>clomber.png</ICON>
+		<SCREENSHOT>clomber_gameplay2.png</SCREENSHOT>
+	</GAME>
+	<GAME>
+		<TITLE>REACH EAT</TITLE>
+		<CREDITS>by mtylpg</CREDITS>
+		<INFO>reach to grab
+pull to eat
+eat to score
+dip for more
+</INFO>
+		<EXE_PATH>/ReachEat_Updated.exe</EXE_PATH>
+		<IS_WEB>FALSE</IS_WEB>
+		<ICON>ReachEat.png</ICON>
+		<SCREENSHOT>ReachEat_gameplay.png</SCREENSHOT>
+	</GAME>
+	
+	
 </GAMES>

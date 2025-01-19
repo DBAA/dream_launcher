@@ -1,6 +1,6 @@
 <SETTINGS>
 	<!-- Messages -->
-	<BOTTOM_MESSAGE>DreamboxXx Arcade Machine brought to you by Death By Audio Arcade  ~  DeathByAudioArcade.com  ~  @DBAArcade</BOTTOM_MESSAGE>
+	<BOTTOM_MESSAGE>Lever Up Jam brought to you by The MAGFest Indie Arcade and Arcade Commons!</BOTTOM_MESSAGE>
 	<TOP_TEXT_MESSAGE>Select Game</TOP_TEXT_MESSAGE>
 	
 	<!-- Main Colors, hex values -->
@@ -21,17 +21,17 @@
 	<BY_LINE_FONT_SIZE>34</BY_LINE_FONT_SIZE>
 	
 	<INFO_FONT>SaniTrixieSans.ttf</INFO_FONT>
-	<INFO_FONT_SIZE>28</INFO_FONT_SIZE>
+	<INFO_FONT_SIZE>25</INFO_FONT_SIZE>
 	
 	<BOTTOM_FONT>SaniTrixieSans.ttf</BOTTOM_FONT>
 	<BOTTOM_FONT_SIZE>22</BOTTOM_FONT_SIZE>
 	
 	<!-- background colors -->
 	<BG_COLORS>
-		<BG_COLOR><VAL>#0000FF</VAL></BG_COLOR>
-		<BG_COLOR><VAL>#FF00FF</VAL></BG_COLOR>
-		<BG_COLOR><VAL>#00FF00</VAL></BG_COLOR>
-		<BG_COLOR><VAL>#00FFAA</VAL></BG_COLOR>
+		<BG_COLOR><VAL>#871ca1</VAL></BG_COLOR>
+		<BG_COLOR><VAL>#0ccddb</VAL></BG_COLOR>
+		<BG_COLOR><VAL>#ffd046</VAL></BG_COLOR>
+		<BG_COLOR><VAL>#b2296b</VAL></BG_COLOR>
 	</BG_COLORS>
 	
 	<!-- washing out/fading the background, 0-255 -->
@@ -42,6 +42,25 @@
 	<MOVE_SOUND>move1.wav</MOVE_SOUND>
 	<SELECT_SOUND>select3.wav</SELECT_SOUND>
 	<RETURN_SOUND>return1.wav</RETURN_SOUND>
+	
+	<!-- keys -->
+	<!-- put a number for a key code or a letter for that key. choices are case sensative -->
+	<!-- see readme for some values -->
+	<!-- DO NOT use R or F here. The launcher does things with those keys -->
+	<KEY_CONFIRM>
+		<KEY><VAL>13</VAL></KEY> <!-- enter -->
+		<KEY><VAL>32</VAL></KEY> <!--space-->
+	</KEY_CONFIRM>
+	<KEY_LEFT>
+		<KEY><VAL>A</VAL></KEY>
+		<KEY><VAL>a</VAL></KEY>
+		<KEY><VAL>356</VAL></KEY> <!--left arrow-->
+	</KEY_LEFT>
+	<KEY_RIGHT>
+		<KEY><VAL>D</VAL></KEY>
+		<KEY><VAL>d</VAL></KEY>
+		<KEY><VAL>358</VAL></KEY> <!--right arrow-->
+	</KEY_RIGHT>
 	
 	
 	<!-- positions, 0-1 measured in screen % -->
@@ -68,9 +87,9 @@
 	
 	<LOGO_X>0.06</LOGO_X>
 	<LOGO_Y>0.90</LOGO_Y>
-	<LOGO_IMG>ia-black_small.png</LOGO_IMG>
+	<LOGO_IMG>ia-black_small_outline.png</LOGO_IMG>
 	
-	<BOTTOM_TEXT_X>0.18</BOTTOM_TEXT_X>
+	<BOTTOM_TEXT_X>0.5</BOTTOM_TEXT_X>
 	<BOTTOM_TEXT_Y>0.97</BOTTOM_TEXT_Y>
 	
 	<!-- other shit -->

@@ -82,4 +82,8 @@ class ofApp : public ofBaseApp{
 		bool use_relative_path;
 		string games_folder_path;
 		
+		//keys
+		vector<int> confirm_keys;
+		vector<int> left_keys;
+		vector<int> right_keys;
 };

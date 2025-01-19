@@ -58,6 +58,10 @@ void ofApp::loadXML() {
 		return;
 	}
 
+	confirm_keys.clear();
+	left_keys.clear();
+	right_keys.clear();
+
 	//go through the games
 	xml.setTo("GAME[0]");
 	do {
@@ -127,6 +131,65 @@ void ofApp::loadXML() {
 
 	string logo_path = "images/" + xml.getValue<string>("LOGO_IMG");
 	logo.load(logo_path);
+
+	//keys
+	xml.setTo("KEY_LEFT");
+	xml.setTo("KEY[0]");
+	do {
+		int key_val = xml.getValue<int>("VAL");
+		if (key_val == 0) {
+			string val_s = xml.getValue<string>("VAL");
+			if (val_s.length() > 0) {
+				key_val = (int)val_s[0];
+			}
+		}
+		left_keys.push_back(key_val);
+
+	} while (xml.setToSibling());
+	xml.setToParent();
+	xml.setToParent();
+
+	xml.setTo("KEY_RIGHT");
+	xml.setTo("KEY[0]");
+	do {
+		int key_val = xml.getValue<int>("VAL");
+		if (key_val == 0) {
+			string val_s = xml.getValue<string>("VAL");
+			if (val_s.length() > 0) {
+				key_val = (int)val_s[0];
+			}
+		}
+		right_keys.push_back(key_val);
+		cout << "right push: " << key_val << endl;
+
+	} while (xml.setToSibling());
+	xml.setToParent();
+	xml.setToParent();
+
+	xml.setTo("KEY_CONFIRM");
+	xml.setTo("KEY[0]");
+	do {
+		int key_val = xml.getValue<int>("VAL");
+		if (key_val == 0) {
+			string val_s = xml.getValue<string>("VAL");
+			if (val_s.length() > 0) {
+				key_val = (int)val_s[0];
+			}
+		}
+		confirm_keys.push_back(key_val);
+		cout << "confirm push: " << key_val << endl;
+
+	} while (xml.setToSibling());
+	xml.setToParent();
+	xml.setToParent();
+
+	/*cout << "OF_KEY_UP :" << OF_KEY_UP << endl;
+	cout << "OF_KEY_DOWN :" << OF_KEY_DOWN << endl;
+	cout << "OF_KEY_LEFT :" << OF_KEY_LEFT << endl;
+	cout << "OF_KEY_RIGHT :" << OF_KEY_RIGHT << endl;
+	cout << "OF_KEY_BACKSPACE :" << OF_KEY_BACKSPACE << endl;
+	cout << "OF_KEY_RETURN :" << OF_KEY_RETURN << endl;*/
+
 
 	//colors
 	selectTextColHex = ofHexToInt(xml.getValue<string>("SELECT_HEX_COL"));
@@ -269,7 +332,8 @@ void ofApp::draw(){
 
 	//info
 	//ofSetHexColor(bottomTextColHex);
-	bottomInfoFont.drawString(bottomMessageText, ofGetWidth() * bottomTextPos.x, ofGetHeight() * bottomTextPos.y);
+	float bottom_text_w = bottomInfoFont.stringWidth(bottomMessageText);
+	bottomInfoFont.drawString(bottomMessageText, ofGetWidth() * bottomTextPos.x - bottom_text_w/2, ofGetHeight() * bottomTextPos.y);
 }
 
 //--------------------------------------------------------------
@@ -335,6 +399,7 @@ ofVec2f ofApp::getIconPos(int slotNum) {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
+	//cout << "ya pressed " << key << endl;
 	//this command is used by the autohotkey script and is called whenever the app is given focus
 	if (key == 'R') {
 		cout << "better resize" << endl;
@@ -349,37 +414,38 @@ void ofApp::keyPressed(int key) {
 	if (!canSelectGame) {
 		return;
 	}
-	//cout << "ya pressed " << key << endl;
-	
-	//left and right
-	if (key == 'a' || key == 'A' || key == OF_KEY_LEFT) {
+
+	bool left_pressed = false;
+	for (int i = 0; i < left_keys.size(); i++)	if (key == left_keys[i]) left_pressed = true;
+	if (left_pressed) {
 		cycleSelection(curSelection, (curSelection + icons.size() - 1) % icons.size());
 		background.offsetInt--;
 		moveSound.play();
 	}
-	if (key == 'd' || key == 'D' || key == OF_KEY_RIGHT) {
+	bool right_pressed = false;
+	for (int i = 0; i < right_keys.size(); i++)	if (key == right_keys[i]) right_pressed = true;
+	if (right_pressed) {
 		cycleSelection(curSelection, (curSelection + 1) % icons.size());
 		background.offsetInt++;
 		moveSound.play();
 	}
 
+
+	bool confirm_pressed = false;
+	for (int i = 0; i < confirm_keys.size(); i++)	if (key == confirm_keys[i]) confirm_pressed = true;
+
 	//all player buttons act as selecitons
-	if (key == 'C' || key == 'c' || key == 'V' || key == 'v' || key == 'N' || key == 'n' || key == 'M' || key == 'm' || key == ' ') {
-		if (canSelectGame) {
-			if (info[curSelection].is_general_info == false) {
-				cout << "launch " << info[curSelection].titleText << endl;
-				selectSound.play();
-				if (info[curSelection].isWeb) {
-					//ofToggleFullscreen();
-					launchWeb(info[curSelection].executablePath);
-				}
-				else {
-					launchExe(info[curSelection].executablePath);
-				}
+	if(confirm_pressed & canSelectGame){
+		if (info[curSelection].is_general_info == false) {
+			cout << "launch " << info[curSelection].titleText << endl;
+			selectSound.play();
+			if (info[curSelection].isWeb) {
+				//ofToggleFullscreen();
+				launchWeb(info[curSelection].executablePath);
 			}
-		}
-		else {
-			cout << "Can't select games right now" << endl;
+			else {
+				launchExe(info[curSelection].executablePath);
+			}
 		}
 	}
 

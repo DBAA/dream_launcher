@@ -11,6 +11,8 @@ void BounceText::setup(string fontPath, int _fontSize) {
 	charSpacing = 1 + fontSize * 0.1;
 	spaceWidth = font.stringWidth("o");
 	lineHeight = font.getLineHeight() * 1.25;
+
+	line_break_marker = "#";
 }
 
 //returns height of the text
@@ -22,9 +24,13 @@ float BounceText::draw(string textToDraw, int _x, int _y, int textWidth) {
 	vector<string> words;
 	string thisWord = "";
 	for (int i = 0; i < textToDraw.length(); i++) {
-		if (textToDraw[i] == ' ') {
+		if (textToDraw[i] == ' ' || textToDraw[i] == '\n') {
 			words.push_back(thisWord);
 			thisWord = "";
+
+			if (textToDraw[i] == '\n') {
+				words.push_back(line_break_marker);
+			}
 		}
 		else {
 			thisWord += textToDraw[i];
@@ -38,19 +44,21 @@ float BounceText::draw(string textToDraw, int _x, int _y, int textWidth) {
 	int lineNum = 0;
 	//int charNum = 0;
 	for (int i = 0; i < words.size(); i++) {
+		//cout << "word: " << words[i] << endl;
 		//if the next word would push us off the line, end it
-		if (curWidth + font.stringWidth(words[i]) + charSpacing*words[i].length() > textWidth) {
+		if (curWidth + font.stringWidth(words[i]) + charSpacing*words[i].length() > textWidth || words[i] == line_break_marker) {
 			drawLine(thisLine, _x, _y + lineNum * lineHeight, 0);
-			//charNum += thisLine.length();
 			lineNum++;
 			curWidth = 0;
 			thisLine = "";
 		}
-		//add the next word
-		thisLine += words[i];
-		thisLine += " ";
-		curWidth += font.stringWidth(words[i]) + charSpacing*words[i].length();
-		curWidth += spaceWidth;
+		if (words[i] != line_break_marker) {
+			//add the next word
+			thisLine += words[i];
+			thisLine += " ";
+			curWidth += font.stringWidth(words[i]) + charSpacing * words[i].length();
+			curWidth += spaceWidth;
+		}
 
 	}
 

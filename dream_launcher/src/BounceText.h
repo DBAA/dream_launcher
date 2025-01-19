@@ -19,4 +19,6 @@ public:
 	int lineHeight;
 	int charSpacing;
 
+	string line_break_marker;
+
 };
